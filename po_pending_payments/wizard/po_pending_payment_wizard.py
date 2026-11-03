@@ -574,7 +574,7 @@ class PoPendingPaymentWizard(models.TransientModel):
             if rtl:
                 ws.right_to_left()
             ws.write(0, 0, title, f_title)
-            ws.write(1, 0, '%s — %s' % (data['company'].name, _('Amounts in %s unless stated') % ccy.name), f_sub)
+            ws.write(1, 0, '%s — %s' % (data['company'].name, data['labels']['currency_note']), f_sub)
             row = 2
             for label, value in data['filters']:
                 ws.write(row, 0, label, f_flabel)

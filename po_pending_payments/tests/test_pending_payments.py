@@ -416,6 +416,7 @@ class TestPoPendingPayments(AccountTestInvoicingCommon):
             ws = book.worksheets[0]
             self.assertTrue(ws.sheet_view.rightToLeft)
             self.assertEqual(ws.title, 'الدفعات المعلقة')
+            self.assertIn('المبالغ بعملة', ws['A2'].value, 'Excel sub-title is translated')
         selection = dict(wizard._fields['due_filter']._description_selection(wizard.env))
         self.assertEqual(selection['overdue'], 'المتأخرة فقط')
 
