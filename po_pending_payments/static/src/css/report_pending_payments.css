@@ -81,8 +81,8 @@
 .ppp-vendor { margin-bottom: 14px; page-break-inside: auto; }
 .ppp-vendor .ppp-table { margin-top: 0; }
 .ppp-table tr.ppp-vendor-row td { padding: 7px 8px; background: #e8eef6; border-bottom: 0 none; }
-.ppp-ltr .ppp-vendor-name { border-left: 4px solid #1f3a5f; }
-.ppp-rtl .ppp-vendor-name { border-right: 4px solid #1f3a5f; }
+.ppp-ltr .ppp-vendor-name { border-left: 4px solid #1f3a5f; padding-left: 12px !important; }
+.ppp-rtl .ppp-vendor-name { border-right: 4px solid #1f3a5f; padding-right: 12px !important; }
 .ppp-vendor-name { font-size: 12.5px; font-weight: 700; color: #1f3a5f; }
 .ppp-ltr .ppp-vendor-total { text-align: right; }
 .ppp-rtl .ppp-vendor-total { text-align: left; }
@@ -121,10 +121,10 @@
 }
 .ppp-bill td { font-size: 9.5px; color: #344054; background: #fcfcfd; border-bottom: 1px dotted #eaecf0; }
 .ppp-pay td { font-size: 9px; color: #475467; border-bottom: 1px dotted #f2f4f7; }
-.ppp-ltr .ppp-indent { padding-left: 18px; }
-.ppp-ltr .ppp-indent2 { padding-left: 34px; }
-.ppp-rtl .ppp-indent { padding-right: 18px; }
-.ppp-rtl .ppp-indent2 { padding-right: 34px; }
+.ppp-ltr .ppp-table td.ppp-indent { padding-left: 18px; }
+.ppp-ltr .ppp-table td.ppp-indent2 { padding-left: 34px; }
+.ppp-rtl .ppp-table td.ppp-indent { padding-right: 18px; }
+.ppp-rtl .ppp-table td.ppp-indent2 { padding-right: 34px; }
 .ppp-tag {
     display: inline-block;
     padding: 0 4px;
