@@ -79,7 +79,8 @@
 
 /* Vendor sections */
 .ppp-vendor { margin-bottom: 14px; page-break-inside: auto; }
-.ppp-vendor-head td { padding: 6px 8px; background: #e8eef6; }
+.ppp-vendor .ppp-table { margin-top: 0; }
+.ppp-table tr.ppp-vendor-row td { padding: 7px 8px; background: #e8eef6; border-bottom: 0 none; }
 .ppp-ltr .ppp-vendor-name { border-left: 4px solid #1f3a5f; }
 .ppp-rtl .ppp-vendor-name { border-right: 4px solid #1f3a5f; }
 .ppp-vendor-name { font-size: 12.5px; font-weight: 700; color: #1f3a5f; }
@@ -90,6 +91,7 @@
 /* Data tables */
 .ppp-table thead { display: table-header-group; }
 .ppp-table tr { page-break-inside: avoid; }
+.ppp-table tbody.ppp-group { page-break-inside: avoid; }
 .ppp-table th {
     padding: 5px 6px;
     font-size: 8.5px;
@@ -101,6 +103,9 @@
     background: #ffffff;
 }
 .ppp-table td { padding: 4px 6px; border-bottom: 1px solid #eaecf0; vertical-align: top; }
+/* Only horizontal rules: Bootstrap gives every cell a solid 0-width border, which the patched-Qt
+   wkhtmltopdf draws as faint vertical lines. */
+.ppp-table th, .ppp-table td, .ppp-filters td, .ppp-titlebar td { border-top-style: none; border-left-style: none; border-right-style: none; }
 .ppp-table th.ppp-comp, .ppp-table td.ppp-comp { background: #f7f9fc; }
 .ppp-row td { font-size: 10.5px; }
 .ppp-paid { color: #067647; }
@@ -140,7 +145,7 @@
     border-radius: 8px;
     font-weight: 700;
 }
-.ppp-subtotal td {
+.ppp-table tr.ppp-subtotal td {
     padding: 5px 6px;
     font-weight: 700;
     background: #f4f6fa;
@@ -158,7 +163,7 @@
     letter-spacing: 1px;
     margin: 6px 0;
 }
-.ppp-grand td {
+.ppp-table tr.ppp-grand td {
     padding: 7px 6px;
     font-size: 11.5px;
     font-weight: 700;

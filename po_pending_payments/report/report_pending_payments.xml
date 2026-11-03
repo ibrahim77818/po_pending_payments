@@ -85,17 +85,18 @@
                 <!-- Per vendor -->
                 <t t-foreach="d['vendors']" t-as="vendor">
                     <div class="ppp-vendor">
-                        <table class="ppp-vendor-head">
-                            <tr>
-                                <td class="ppp-vendor-name" t-out="doc._bidi(vendor['partner'].display_name)"/>
-                                <td class="ppp-vendor-total">
-                                    <span class="ppp-chip ppp-muted">Outstanding</span>
-                                    <strong class="ppp-chip" t-out="doc._bidi_amount(vendor['totals']['outstanding_company'], ccy)"/>
-                                </td>
-                            </tr>
-                        </table>
+                        <!-- The vendor banner is the first header row: wkhtmltopdf repeats it on every page
+                             the vendor spans and never leaves it alone at the bottom of a page. -->
+                        <t t-set="ncols" t-value="11 if d['unbilled_counted'] else 10"/>
                         <table class="ppp-table">
                             <thead>
+                                <tr class="ppp-vendor-row">
+                                    <td t-att-colspan="ncols - 3" class="ppp-vendor-name" t-out="doc._bidi(vendor['partner'].display_name)"/>
+                                    <td colspan="3" class="ppp-vendor-total">
+                                        <span class="ppp-chip ppp-muted">Outstanding</span>
+                                        <strong class="ppp-chip" t-out="doc._bidi_amount(vendor['totals']['outstanding_company'], ccy)"/>
+                                    </td>
+                                </tr>
                                 <tr>
                                     <th class="ppp-start">Purchase Order</th>
                                     <th class="ppp-center">Order Date</th>
@@ -110,8 +111,9 @@
                                     <th class="ppp-center">Overdue Days</th>
                                 </tr>
                             </thead>
-                            <tbody>
-                                <t t-foreach="vendor['rows']" t-as="row">
+                            <!-- One <tbody> per order keeps an order and its bills/payments on the same page -->
+                            <t t-foreach="vendor['rows']" t-as="row">
+                                <tbody class="ppp-group">
                                     <t t-set="rc" t-value="row['currency']"/>
                                     <tr class="ppp-row">
                                         <td class="ppp-start"><strong t-out="doc._bidi(row['name'])"/></td>
@@ -169,9 +171,11 @@
                                             </t>
                                         </t>
                                     </t>
-                                </t>
-                            </tbody>
-                            <tfoot>
+                                </tbody>
+                            </t>
+                            <tbody>
+                                <!-- Subtotal is the last body row, not a <tfoot>: wkhtmltopdf would repeat a
+                                     footer at the bottom of every page the vendor spans. -->
                                 <tr class="ppp-subtotal">
                                     <td class="ppp-start" colspan="3" t-out="doc._bidi(lbl['subtotal'])"/>
                                     <td class="ppp-num" t-out="doc._bidi_amount(vendor['totals']['amount_order_company'], ccy)"/>
@@ -187,7 +191,7 @@
                                         </t>
                                     </td>
                                 </tr>
-                            </tfoot>
+                            </tbody>
                         </table>
                     </div>
                 </t>
@@ -226,8 +230,6 @@
                                     <td class="ppp-num ppp-comp"><strong t-out="doc._bidi_amount(cur['outstanding_company'], ccy)"/></td>
                                 </tr>
                             </t>
-                        </tbody>
-                        <tfoot>
                             <tr class="ppp-grand">
                                 <td class="ppp-start">Grand Total</td>
                                 <td class="ppp-center" t-esc="d['order_count']"/>
@@ -237,7 +239,7 @@
                                 <td class="ppp-num" t-if="d['unbilled_counted']" t-out="doc._bidi_amount(tot['unbilled_company'], ccy)"/>
                                 <td class="ppp-num" t-out="doc._bidi_amount(tot['outstanding_company'], ccy)"/>
                             </tr>
-                        </tfoot>
+                        </tbody>
                     </table>
                     <p class="ppp-note" t-out="doc._bidi(lbl['note'])"/>
                 </div>
