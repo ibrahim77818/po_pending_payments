@@ -13,8 +13,8 @@
                     <button name="action_export_xlsx" type="object" string="Export Excel" icon="fa-file-excel-o"
                             class="btn-secondary"/>
                 </header>
-                <field name="company_currency_id" invisible="1"/>
-                <field name="wizard_id" invisible="1"/>
+                <field name="company_currency_id" column_invisible="True"/>
+                <field name="wizard_id" column_invisible="True"/>
                 <field name="partner_id" optional="hide"/>
                 <field name="order_id" string="Order" widget="many2one"/>
                 <field name="date_order" string="Date"/>
@@ -33,11 +33,11 @@
                 <field name="max_days_overdue" string="Days Late" optional="show"/>
                 <field name="next_due_date" string="Next Due" optional="show"/>
                 <field name="bill_count" optional="hide"/>
-                <field name="status" widget="badge" decoration-danger="status == 'overdue'"
+                <field name="status" widget="badge" width="110px" decoration-danger="status == 'overdue'"
                        decoration-warning="status == 'due'" decoration-info="status == 'unbilled'"
                        decoration-muted="status == 'settled'"/>
                 <button name="action_open_bills" type="object" icon="fa-file-text-o" title="Open Bills"
-                        attrs="{'invisible': [('bill_count', '=', 0)]}"/>
+                        invisible="bill_count == 0"/>
             </tree>
         </field>
     </record>
@@ -55,7 +55,7 @@
                         <button name="action_open_order" type="object" class="oe_stat_button"
                                 icon="fa-shopping-cart" string="Order"/>
                         <button name="action_open_bills" type="object" class="oe_stat_button" icon="fa-pencil-square-o"
-                                attrs="{'invisible': [('bill_count', '=', 0)]}">
+                                invisible="bill_count == 0">
                             <field name="bill_count" widget="statinfo" string="Bills"/>
                         </button>
                     </div>
@@ -92,8 +92,8 @@
                     <separator string="Vendor Bills &amp; Payment Allocations"/>
                     <field name="bill_line_ids" nolabel="1">
                         <tree>
-                            <field name="currency_id" invisible="1"/>
-                            <field name="company_currency_id" invisible="1"/>
+                            <field name="currency_id" column_invisible="True"/>
+                            <field name="company_currency_id" column_invisible="True"/>
                             <field name="bill_id"/>
                             <field name="move_type" optional="hide"/>
                             <field name="date"/>
