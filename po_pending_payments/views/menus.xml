@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <menuitem id="menu_po_pending_payments"
+              name="Pending Payments"
+              parent="purchase.purchase_report_main"
+              action="action_po_pending_payment_wizard"
+              groups="purchase.group_purchase_manager"
+              sequence="110"/>
+</odoo>

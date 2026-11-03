@@ -1,0 +1,1127 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* po_pending_payments
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2026-11-03 12:08+0000\n"
+"PO-Revision-Date: 2026-11-03 12:08+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "%(orders)s orders · %(bills)s bills"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "%.1f%% of bill"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.actions.report,print_report_name:po_pending_payments.action_report_po_pending_payments
+msgid "'Pending Payments - %s' % (object.as_of_date)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "<i class=\"fa fa-long-arrow-right mx-2\" aria-label=\"to\" title=\"to\"/>"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+msgid "<span class=\"ppp-chip ppp-muted\">Outstanding</span>"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+msgid "<span class=\"ppp-chip\">Overdue</span>"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "<span>days from the \"As of\" date</span>"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "All"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_wizard__due_filter__all
+msgid "All Due Dates"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "All purchase orders"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "All vendors"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__amount_residual_company
+msgid "Allocated Due (Company)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__amount_paid_company
+msgid "Allocated Paid (Company)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__amount_total_company
+msgid "Allocated Total (Company)"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Allocation"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__allocation
+msgid "Allocation %"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,help:po_pending_payments.field_po_pending_payment_wizard__include_settled
+msgid "Also list purchase orders with nothing due and nothing left to bill."
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Amount"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Amount (%s)"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Amounts in %s unless stated"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,help:po_pending_payments.field_po_pending_payment_wizard__due_filter
+msgid ""
+"Applied to vendor bills. Any value other than \"All Due Dates\" excludes "
+"amounts not yet billed, since they have no due date."
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__as_of_date
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+#, python-format
+msgid "As of Date"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+msgid "Bill"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__date
+msgid "Bill Date"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__amount_billed
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+#, python-format
+msgid "Billed"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Billed (%s)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__billed_company
+msgid "Billed (Company)"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__bill_count
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_form
+#, python-format
+msgid "Bills"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__bill_line_ids
+#, python-format
+msgid "Bills & Payments"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_wizard__pending_scope__all
+msgid "Bills Due + Not Yet Billed"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_wizard__pending_scope__billed
+msgid "Bills Due Only"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "Cancel"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__company_id
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__company_id
+msgid "Company"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__company_currency_id
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__company_currency_id
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_form
+msgid "Company Currency"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid ""
+"Company-currency amounts of bills and payments come from the posted journal "
+"items (rates of their accounting dates). Amounts not yet billed are "
+"converted at the rate of the \"As of\" date. A bill covering several "
+"purchase orders is split in proportion to its lines."
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,help:po_pending_payments.field_po_pending_payment_line__unbilled_company
+msgid "Converted at the \"As of\" date rate."
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__create_uid
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__create_uid
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__create_date
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__create_date
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_bill__move_type__in_refund
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+#, python-format
+msgid "Credit Note"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+msgid "Cur."
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__currency_id
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__currency_id
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__company_currency_id
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_form
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_search
+#, python-format
+msgid "Currency"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+#, python-format
+msgid "Currency Breakdown"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Currency Summary"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+#, python-format
+msgid "Date"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "Dates"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__due_days
+msgid "Days"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_form
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+msgid "Days Late"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__days_overdue
+#, python-format
+msgid "Days Overdue"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__display_name
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__display_name
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Document"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__amount_due
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_line__status__due
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_search
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+#, python-format
+msgid "Due"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Due (%s)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__due_company
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_form
+msgid "Due (Company)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+msgid "Due (PO Cur.)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "Due Between"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__date_due
+#, python-format
+msgid "Due Date"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_wizard__due_filter__due_range
+msgid "Due Date Range"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__due_filter
+#, python-format
+msgid "Due Date Threshold"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "Due Dates"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__due_date_from
+msgid "Due From"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__due_date_to
+msgid "Due To"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_wizard__due_filter__due_within
+msgid "Due Within Next N Days"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+msgid "Due on Bills"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Due within %s days"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Exchange Difference"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "Export Excel"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__date_from
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "From"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,help:po_pending_payments.field_po_pending_payment_line__billed_company
+msgid "From the posted payable journal items of the bills (bill-date rates)."
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+msgid "Grand Total"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Grand Total (%s)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_search
+msgid "Group By"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__id
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__id
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__id
+msgid "ID"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__include_settled
+msgid "Include Settled Orders"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Journal"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Journal Entry"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill____last_update
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line____last_update
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__write_uid
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__write_uid
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__write_date
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__write_date
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,help:po_pending_payments.field_po_pending_payment_wizard__partner_ids
+msgid ""
+"Leave empty to include all vendors. Contacts of a selected company are "
+"included automatically."
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,help:po_pending_payments.field_po_pending_payment_wizard__purchase_order_ids
+msgid ""
+"Leave empty to include every confirmed purchase order matching the other "
+"filters."
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__line_id
+msgid "Line"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__max_days_overdue
+#, python-format
+msgid "Max Days Overdue"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+msgid "Next Due"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__next_due_date
+#, python-format
+msgid "Next Due Date"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.actions.act_window,help:po_pending_payments.action_po_pending_payment_line
+msgid "No pending payments"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "No pending payments match the selected filters."
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__amount_unbilled
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_line__status__unbilled
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_search
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+#, python-format
+msgid "Not Billed"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Not Billed (%s)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__unbilled_company
+msgid "Not Billed (Company)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+msgid "Not Billed (PO Cur.)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+msgid "Not Yet Billed"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_wizard__due_filter__not_due
+msgid "Not Yet Due"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__name
+msgid "Number"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+msgid "Open Bills"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "Options"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_form
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+msgid "Order"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_form
+msgid "Order Currency"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__date_order
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+#, python-format
+msgid "Order Date"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_search
+msgid "Order Month"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,help:po_pending_payments.field_po_pending_payment_line__amount_order_company
+msgid "Order total converted at the order-date rate."
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+#, python-format
+msgid "Orders"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+msgid "Outstanding"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Outstanding (%s)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__outstanding_company
+msgid "Outstanding (Company)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_line__status__overdue
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_search
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+msgid "Overdue"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Overdue (%s)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__overdue_company
+msgid "Overdue (Company)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+msgid "Overdue Days"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_wizard__due_filter__overdue
+msgid "Overdue Only"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__amount_order
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+#, python-format
+msgid "PO Amount"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__amount_order_company
+msgid "PO Amount (Company)"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__amount_paid
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__amount_paid
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+#, python-format
+msgid "Paid"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Paid (%s)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__paid_company
+msgid "Paid (Company)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__partner_name
+msgid "Partner Name"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Payment"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__payment_state
+msgid "Payment Status"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__payment_summary
+msgid "Payments"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__pending_scope
+#, python-format
+msgid "Pending Amounts"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_form
+msgid "Pending Payment"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.actions.act_window,name:po_pending_payments.action_po_pending_payment_line
+#: model:ir.actions.act_window,name:po_pending_payments.action_po_pending_payment_wizard
+#: model:ir.actions.report,name:po_pending_payments.action_report_po_pending_payments
+#: model:ir.ui.menu,name:po_pending_payments.menu_po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_search
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+#, python-format
+msgid "Pending Payments"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Pending Payments (as of %s)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+msgid "Pending Payments Report"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid ""
+"Pending amounts are taken from posted vendor bills linked to confirmed purchase orders,\n"
+"                    plus quantities not yet billed. Draft bills are treated as not billed."
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Pending_Payments"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "Period"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__date_type
+msgid "Period Based On"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "Print PDF"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,help:po_pending_payments.field_po_pending_payment_wizard__show_details
+msgid ""
+"Print each vendor bill and the payments, credit notes and exchange "
+"differences reconciled with it."
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+msgid "Purchase"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__order_id
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+#, python-format
+msgid "Purchase Order"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_wizard__date_type__order
+msgid "Purchase Order Date"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,help:po_pending_payments.field_po_pending_payment_wizard__date_type
+msgid ""
+"Purchase Order Date: filters orders by their order date and includes amounts not yet billed.\n"
+"Vendor Bill Date: only counts bills dated within the period; amounts not yet billed are excluded."
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__purchase_order_ids
+#, python-format
+msgid "Purchase Orders"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Purchase Pending Payments"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model,name:po_pending_payments.model_po_pending_payment_bill
+msgid "Purchase Pending Payments Bill Detail"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model,name:po_pending_payments.model_po_pending_payment_line
+msgid "Purchase Pending Payments Line"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model,name:po_pending_payments.model_report_po_pending_payments_report_pending_payments
+msgid "Purchase Pending Payments PDF Report"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model,name:po_pending_payments.model_po_pending_payment_wizard
+msgid "Purchase Pending Payments Report Wizard"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__name
+#, python-format
+msgid "Reference"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,help:po_pending_payments.field_po_pending_payment_wizard__as_of_date
+msgid ""
+"Reference date for overdue days and for converting amounts not yet billed "
+"into the company currency."
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__amount_residual
+#, python-format
+msgid "Residual"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Residual (%s)"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__line_ids
+msgid "Result Lines"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.actions.act_window,help:po_pending_payments.action_po_pending_payment_line
+msgid "Run the report from Purchase &gt; Reporting &gt; Pending Payments."
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Set at least one bound for the due date range."
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_line__status__settled
+msgid "Settled"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_form
+msgid "Share %"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,help:po_pending_payments.field_po_pending_payment_bill__allocation
+msgid "Share of this bill attributed to the purchase order."
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__show_details
+msgid "Show Bills & Payments"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__status
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_search
+msgid "Status"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Subtotal %s"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "Subtotal (%s)"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "The \"Due From\" date must be before the \"Due To\" date."
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "The Python library xlsxwriter is required for the Excel export."
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "The number of days must be zero or positive."
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#, python-format
+msgid "The start date must be before the end date."
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__date_to
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "To"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__amount_total
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
+#, python-format
+msgid "Total"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
+msgid "Total Outstanding"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__move_type
+#, python-format
+msgid "Type"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__partner_id
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_search
+#, python-format
+msgid "Vendor"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__bill_id
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_bill__move_type__in_invoice
+#, python-format
+msgid "Vendor Bill"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_wizard__date_type__bill
+msgid "Vendor Bill Date"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__bill_ids
+msgid "Vendor Bills"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_form
+#, python-format
+msgid "Vendor Bills & Payment Allocations"
+msgstr ""
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__partner_ids
+#, python-format
+msgid "Vendors"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "Vendors & Orders"
+msgstr ""
+
+#. module: po_pending_payments
+#: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
+msgid "View"
+msgstr ""
+
+#. module: po_pending_payments
+#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__wizard_id
+msgid "Wizard"
+msgstr ""

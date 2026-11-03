@@ -1,0 +1,255 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="action_report_po_pending_payments" model="ir.actions.report">
+        <field name="name">Pending Payments</field>
+        <field name="model">po.pending.payment.wizard</field>
+        <field name="report_type">qweb-pdf</field>
+        <field name="report_name">po_pending_payments.report_pending_payments</field>
+        <field name="report_file">po_pending_payments.report_pending_payments</field>
+        <field name="print_report_name">'Pending Payments - %s' % (object.as_of_date)</field>
+        <field name="paperformat_id" ref="paperformat_po_pending_payments"/>
+        <field name="binding_type">report</field>
+    </record>
+
+    <!--
+        Every dynamic text, amount and date is printed through doc._bidi*(): it isolates Arabic and
+        Latin/number runs so wkhtmltopdf renders mixed right-to-left text without overlapping glyphs.
+    -->
+    <template id="report_pending_payments_document">
+        <t t-set="d" t-value="report_data[doc.id]"/>
+        <t t-set="ccy" t-value="d['company_currency']"/>
+        <t t-set="rtl" t-value="d['is_rtl']"/>
+        <t t-set="tot" t-value="d['totals']"/>
+        <t t-set="lbl" t-value="d['labels']"/>
+        <t t-call="web.external_layout">
+            <div t-attf-class="page ppp-report #{'ppp-rtl' if rtl else 'ppp-ltr'}" t-att-dir="'rtl' if rtl else 'ltr'">
+
+                <!-- Title -->
+                <table class="ppp-titlebar">
+                    <tr>
+                        <td>
+                            <div class="ppp-eyebrow">Purchase</div>
+                            <h2 class="ppp-title">Pending Payments Report</h2>
+                        </td>
+                        <td class="ppp-asof">
+                            <div class="ppp-eyebrow">As of Date</div>
+                            <div class="ppp-asof-date" t-out="doc._bidi_date(d['as_of_date'])"/>
+                            <div class="ppp-muted" t-out="doc._bidi(lbl['currency_note'])"/>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Filters -->
+                <table class="ppp-filters">
+                    <tr>
+                        <t t-foreach="d['filters']" t-as="flt">
+                            <td>
+                                <div class="ppp-flabel" t-out="doc._bidi(flt[0])"/>
+                                <div class="ppp-fvalue" t-out="doc._bidi(flt[1])"/>
+                            </td>
+                        </t>
+                    </tr>
+                </table>
+
+                <!-- KPI cards -->
+                <table class="ppp-kpis">
+                    <tr>
+                        <td class="ppp-kpi">
+                            <div class="ppp-kpi-label">Billed</div>
+                            <div class="ppp-kpi-value" t-out="doc._bidi_amount(tot['billed_company'], ccy)"/>
+                        </td>
+                        <td class="ppp-kpi ppp-kpi-good">
+                            <div class="ppp-kpi-label">Paid</div>
+                            <div class="ppp-kpi-value" t-out="doc._bidi_amount(tot['paid_company'], ccy)"/>
+                        </td>
+                        <td class="ppp-kpi ppp-kpi-warn">
+                            <div class="ppp-kpi-label">Due on Bills</div>
+                            <div class="ppp-kpi-value" t-out="doc._bidi_amount(tot['due_company'], ccy)"/>
+                        </td>
+                        <td class="ppp-kpi" t-if="d['unbilled_counted']">
+                            <div class="ppp-kpi-label">Not Yet Billed</div>
+                            <div class="ppp-kpi-value" t-out="doc._bidi_amount(tot['unbilled_company'], ccy)"/>
+                        </td>
+                        <td class="ppp-kpi ppp-kpi-bad">
+                            <div class="ppp-kpi-label">Overdue</div>
+                            <div class="ppp-kpi-value" t-out="doc._bidi_amount(tot['overdue_company'], ccy)"/>
+                        </td>
+                        <td class="ppp-kpi ppp-kpi-main">
+                            <div class="ppp-kpi-label">Total Outstanding</div>
+                            <div class="ppp-kpi-value" t-out="doc._bidi_amount(tot['outstanding_company'], ccy)"/>
+                            <div class="ppp-kpi-sub" t-out="doc._bidi(lbl['count_note'])"/>
+                        </td>
+                    </tr>
+                </table>
+
+                <!-- Per vendor -->
+                <t t-foreach="d['vendors']" t-as="vendor">
+                    <div class="ppp-vendor">
+                        <table class="ppp-vendor-head">
+                            <tr>
+                                <td class="ppp-vendor-name" t-out="doc._bidi(vendor['partner'].display_name)"/>
+                                <td class="ppp-vendor-total">
+                                    <span class="ppp-chip ppp-muted">Outstanding</span>
+                                    <strong class="ppp-chip" t-out="doc._bidi_amount(vendor['totals']['outstanding_company'], ccy)"/>
+                                </td>
+                            </tr>
+                        </table>
+                        <table class="ppp-table">
+                            <thead>
+                                <tr>
+                                    <th class="ppp-start">Purchase Order</th>
+                                    <th class="ppp-center">Order Date</th>
+                                    <th class="ppp-center">Currency</th>
+                                    <th class="ppp-num">PO Amount</th>
+                                    <th class="ppp-num">Billed</th>
+                                    <th class="ppp-num">Paid</th>
+                                    <th class="ppp-num">Due</th>
+                                    <th class="ppp-num" t-if="d['unbilled_counted']">Not Billed</th>
+                                    <th class="ppp-num ppp-comp" t-out="doc._bidi(lbl['outstanding_ccy'])"/>
+                                    <th class="ppp-center">Next Due</th>
+                                    <th class="ppp-center">Overdue Days</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <t t-foreach="vendor['rows']" t-as="row">
+                                    <t t-set="rc" t-value="row['currency']"/>
+                                    <tr class="ppp-row">
+                                        <td class="ppp-start"><strong t-out="doc._bidi(row['name'])"/></td>
+                                        <td class="ppp-center" t-out="doc._bidi_date(row['date_order'])"/>
+                                        <td class="ppp-center"><span class="ppp-ccy" t-esc="rc.name"/></td>
+                                        <td class="ppp-num" t-out="doc._bidi_amount(row['amount_order'], rc)"/>
+                                        <td class="ppp-num" t-out="doc._bidi_amount(row['billed'], rc)"/>
+                                        <td class="ppp-num ppp-paid" t-out="doc._bidi_amount(row['paid'], rc)"/>
+                                        <td class="ppp-num ppp-due" t-out="doc._bidi_amount(row['due'], rc)"/>
+                                        <td class="ppp-num" t-if="d['unbilled_counted']" t-out="doc._bidi_amount(row['unbilled'], rc)"/>
+                                        <td class="ppp-num ppp-comp"><strong t-out="doc._bidi_amount(row['outstanding_company'], ccy)"/></td>
+                                        <td class="ppp-center" t-out="doc._bidi_date(row['next_due_date'])"/>
+                                        <td class="ppp-center">
+                                            <span t-if="row['max_days_overdue']" class="ppp-badge-bad" t-esc="row['max_days_overdue']"/>
+                                            <span t-else="" class="ppp-muted">—</span>
+                                        </td>
+                                    </tr>
+                                    <t t-if="d['show_details']">
+                                        <t t-foreach="row['bills']" t-as="bill">
+                                            <tr class="ppp-bill">
+                                                <td class="ppp-start ppp-indent" colspan="3">
+                                                    <span class="ppp-tag" t-if="bill['move_type'] == 'in_refund'">Credit Note</span>
+                                                    <span class="ppp-tag" t-else="">Bill</span>
+                                                    <span class="ppp-chip" t-out="doc._bidi(bill['name'])"/>
+                                                    <span class="ppp-chip ppp-muted" t-out="doc._bidi_date(bill['date'])"/>
+                                                    <span class="ppp-chip ppp-muted" t-if="bill['ref']" t-out="doc._bidi(bill['ref'])"/>
+                                                    <span class="ppp-chip ppp-alloc" t-if="bill['ratio'] &lt; 0.9999"
+                                                          t-out="doc._bidi(lbl['alloc'] % (bill['ratio'] * 100))"/>
+                                                </td>
+                                                <td class="ppp-num"/>
+                                                <td class="ppp-num" t-out="doc._bidi_amount(bill['total_order_alloc'], rc)"/>
+                                                <td class="ppp-num" t-out="doc._bidi_amount(bill['paid_order_alloc'], rc)"/>
+                                                <td class="ppp-num" t-out="doc._bidi_amount(bill['residual_order_alloc'], rc)"/>
+                                                <td class="ppp-num" t-if="d['unbilled_counted']"/>
+                                                <td class="ppp-num ppp-comp" t-out="doc._bidi_amount(bill['residual_company_alloc'], ccy)"/>
+                                                <td class="ppp-center" t-out="doc._bidi_date(bill['date_due'])"/>
+                                                <td class="ppp-center">
+                                                    <span t-if="bill['days_overdue']" class="ppp-badge-bad" t-esc="bill['days_overdue']"/>
+                                                </td>
+                                            </tr>
+                                            <t t-foreach="bill['payments']" t-as="pay">
+                                                <tr class="ppp-pay">
+                                                    <td class="ppp-start ppp-indent2" colspan="5">
+                                                        <span class="ppp-chip ppp-kind" t-out="doc._bidi(doc._payment_kind_label(pay['kind']))"/>
+                                                        <strong class="ppp-chip" t-out="doc._bidi(pay['name'])"/>
+                                                        <span class="ppp-chip ppp-muted" t-out="doc._bidi_date(pay['date'])"/>
+                                                        <span class="ppp-chip ppp-muted" t-out="doc._bidi(pay['journal'])"/>
+                                                    </td>
+                                                    <td class="ppp-num ppp-paid" t-out="doc._bidi_amount(pay['amount_currency'], bill['currency'])"/>
+                                                    <td class="ppp-num"/>
+                                                    <td class="ppp-num" t-if="d['unbilled_counted']"/>
+                                                    <td class="ppp-num ppp-comp ppp-muted" t-out="doc._bidi_amount(pay['amount_company'], ccy)"/>
+                                                    <td colspan="2"/>
+                                                </tr>
+                                            </t>
+                                        </t>
+                                    </t>
+                                </t>
+                            </tbody>
+                            <tfoot>
+                                <tr class="ppp-subtotal">
+                                    <td class="ppp-start" colspan="3" t-out="doc._bidi(lbl['subtotal'])"/>
+                                    <td class="ppp-num" t-out="doc._bidi_amount(vendor['totals']['amount_order_company'], ccy)"/>
+                                    <td class="ppp-num" t-out="doc._bidi_amount(vendor['totals']['billed_company'], ccy)"/>
+                                    <td class="ppp-num" t-out="doc._bidi_amount(vendor['totals']['paid_company'], ccy)"/>
+                                    <td class="ppp-num" t-out="doc._bidi_amount(vendor['totals']['due_company'], ccy)"/>
+                                    <td class="ppp-num" t-if="d['unbilled_counted']" t-out="doc._bidi_amount(vendor['totals']['unbilled_company'], ccy)"/>
+                                    <td class="ppp-num ppp-comp" t-out="doc._bidi_amount(vendor['totals']['outstanding_company'], ccy)"/>
+                                    <td colspan="2" class="ppp-center ppp-muted">
+                                        <t t-if="vendor['totals']['overdue_company']">
+                                            <span class="ppp-chip">Overdue</span>
+                                            <span class="ppp-chip" t-out="doc._bidi_amount(vendor['totals']['overdue_company'], ccy)"/>
+                                        </t>
+                                    </td>
+                                </tr>
+                            </tfoot>
+                        </table>
+                    </div>
+                </t>
+
+                <!-- Currency breakdown + grand total -->
+                <div class="ppp-summary">
+                    <h4 class="ppp-section-title">Currency Breakdown</h4>
+                    <table class="ppp-table">
+                        <thead>
+                            <tr>
+                                <th class="ppp-start">Currency</th>
+                                <th class="ppp-center">Orders</th>
+                                <th class="ppp-num">PO Amount</th>
+                                <th class="ppp-num">Billed</th>
+                                <th class="ppp-num">Paid</th>
+                                <th class="ppp-num">Due</th>
+                                <th class="ppp-num" t-if="d['unbilled_counted']">Not Billed</th>
+                                <th class="ppp-num ppp-comp" t-out="doc._bidi(lbl['due_ccy'])"/>
+                                <th class="ppp-num ppp-comp" t-if="d['unbilled_counted']" t-out="doc._bidi(lbl['unbilled_ccy'])"/>
+                                <th class="ppp-num ppp-comp" t-out="doc._bidi(lbl['outstanding_ccy'])"/>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <t t-foreach="d['currencies']" t-as="cur">
+                                <t t-set="cc" t-value="cur['currency']"/>
+                                <tr class="ppp-row">
+                                    <td class="ppp-start"><span class="ppp-ccy" t-esc="cc.name"/></td>
+                                    <td class="ppp-center" t-esc="cur['count']"/>
+                                    <td class="ppp-num" t-out="doc._bidi_amount(cur['amount_order'], cc)"/>
+                                    <td class="ppp-num" t-out="doc._bidi_amount(cur['billed'], cc)"/>
+                                    <td class="ppp-num ppp-paid" t-out="doc._bidi_amount(cur['paid'], cc)"/>
+                                    <td class="ppp-num ppp-due" t-out="doc._bidi_amount(cur['due'], cc)"/>
+                                    <td class="ppp-num" t-if="d['unbilled_counted']" t-out="doc._bidi_amount(cur['unbilled'], cc)"/>
+                                    <td class="ppp-num ppp-comp" t-out="doc._bidi_amount(cur['due_company'], ccy)"/>
+                                    <td class="ppp-num ppp-comp" t-if="d['unbilled_counted']" t-out="doc._bidi_amount(cur['unbilled_company'], ccy)"/>
+                                    <td class="ppp-num ppp-comp"><strong t-out="doc._bidi_amount(cur['outstanding_company'], ccy)"/></td>
+                                </tr>
+                            </t>
+                        </tbody>
+                        <tfoot>
+                            <tr class="ppp-grand">
+                                <td class="ppp-start">Grand Total</td>
+                                <td class="ppp-center" t-esc="d['order_count']"/>
+                                <td colspan="4"/>
+                                <td t-if="d['unbilled_counted']"/>
+                                <td class="ppp-num" t-out="doc._bidi_amount(tot['due_company'], ccy)"/>
+                                <td class="ppp-num" t-if="d['unbilled_counted']" t-out="doc._bidi_amount(tot['unbilled_company'], ccy)"/>
+                                <td class="ppp-num" t-out="doc._bidi_amount(tot['outstanding_company'], ccy)"/>
+                            </tr>
+                        </tfoot>
+                    </table>
+                    <p class="ppp-note" t-out="doc._bidi(lbl['note'])"/>
+                </div>
+            </div>
+        </t>
+    </template>
+
+    <template id="report_pending_payments">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-call="po_pending_payments.report_pending_payments_document"/>
+            </t>
+        </t>
+    </template>
+</odoo>

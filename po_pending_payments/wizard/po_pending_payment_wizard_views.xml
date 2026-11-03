@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_po_pending_payment_wizard_form" model="ir.ui.view">
+        <field name="name">po.pending.payment.wizard.form</field>
+        <field name="model">po.pending.payment.wizard</field>
+        <field name="arch" type="xml">
+            <form string="Pending Payments">
+                <field name="company_id" invisible="1"/>
+                <field name="company_currency_id" invisible="1"/>
+                <div class="alert alert-info mb-3" role="status">
+                    Pending amounts are taken from posted vendor bills linked to confirmed purchase orders,
+                    plus quantities not yet billed. Draft bills are treated as not billed.
+                </div>
+                <group>
+                    <group string="Vendors &amp; Orders">
+                        <field name="partner_ids" widget="many2many_tags"
+                               placeholder="All vendors"
+                               options="{'no_create': True}"
+                               context="{'res_partner_search_mode': 'supplier'}"/>
+                        <field name="purchase_order_ids" widget="many2many_tags"
+                               placeholder="All purchase orders"
+                               options="{'no_create': True}"
+                               domain="[('state', 'in', ('purchase', 'done')), ('company_id', '=', company_id), '|', (1 if not partner_ids else 0, '=', 1), ('partner_id', 'child_of', partner_ids)]"/>
+                    </group>
+                    <group string="Period">
+                        <field name="date_type" widget="radio"/>
+                        <label for="date_from" string="Dates"/>
+                        <div class="o_row">
+                            <field name="date_from" placeholder="From"/>
+                            <i class="fa fa-long-arrow-right mx-2" aria-label="to" title="to"/>
+                            <field name="date_to" placeholder="To"/>
+                        </div>
+                        <field name="as_of_date"/>
+                    </group>
+                    <group string="Due Dates">
+                        <field name="due_filter"/>
+                        <label for="due_days" attrs="{'invisible': [('due_filter', '!=', 'due_within')]}"/>
+                        <div class="o_row" attrs="{'invisible': [('due_filter', '!=', 'due_within')]}">
+                            <field name="due_days" class="oe_inline"/>
+                            <span>days from the "As of" date</span>
+                        </div>
+                        <label for="due_date_from" string="Due Between"
+                               attrs="{'invisible': [('due_filter', '!=', 'due_range')]}"/>
+                        <div class="o_row" attrs="{'invisible': [('due_filter', '!=', 'due_range')]}">
+                            <field name="due_date_from" placeholder="From"/>
+                            <i class="fa fa-long-arrow-right mx-2" aria-label="to" title="to"/>
+                            <field name="due_date_to" placeholder="To"/>
+                        </div>
+                    </group>
+                    <group string="Options">
+                        <field name="pending_scope" widget="radio"/>
+                        <field name="include_settled"/>
+                        <field name="show_details"/>
+                    </group>
+                </group>
+                <footer>
+                    <button name="action_view" type="object" string="View" class="btn-primary"
+                            icon="fa-table" data-hotkey="q"/>
+                    <button name="action_print_pdf" type="object" string="Print PDF" class="btn-secondary"
+                            icon="fa-file-pdf-o" data-hotkey="w"/>
+                    <button name="action_export_xlsx" type="object" string="Export Excel" class="btn-secondary"
+                            icon="fa-file-excel-o" data-hotkey="e"/>
+                    <button string="Cancel" class="btn-secondary" special="cancel" data-hotkey="z"/>
+                </footer>
+            </form>
+        </field>
+    </record>
+
+    <record id="action_po_pending_payment_wizard" model="ir.actions.act_window">
+        <field name="name">Pending Payments</field>
+        <field name="res_model">po.pending.payment.wizard</field>
+        <field name="view_mode">form</field>
+        <field name="view_id" ref="view_po_pending_payment_wizard_form"/>
+        <field name="target">new</field>
+    </record>
+</odoo>

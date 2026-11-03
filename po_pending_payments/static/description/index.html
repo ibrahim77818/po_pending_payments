@@ -1,0 +1,207 @@
+<!-- Odoo Apps description page for po_pending_payments (Odoo 16.0). Inline styles only: apps.odoo.com strips <style> and <script> blocks. -->
+<section style="max-width:1120px;margin:0 auto;padding:0 16px;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,'Helvetica Neue',Arial,sans-serif;color:#2b2b33;">
+
+<!-- ============================== HERO ============================== -->
+<div style="background:linear-gradient(120deg,#017E84 0%,#3d6b78 45%,#714B67 100%);border-radius:18px;padding:48px 40px 40px;color:#ffffff;margin-top:12px;">
+  <div style="font-size:13px;letter-spacing:2px;text-transform:uppercase;opacity:.85;margin-bottom:10px;">Purchase &middot; Accounting &middot; Reporting</div>
+  <h1 style="font-size:40px;line-height:1.15;font-weight:700;margin:0 0 14px;color:#ffffff;">Purchase Pending Payments Report</h1>
+  <p style="font-size:19px;line-height:1.55;max-width:760px;margin:0 0 24px;color:#ffffff;opacity:.95;">See, for every vendor and every purchase order, what has been billed, what has been paid, what is still due and what is not billed yet. Read it on screen, print it as a branded PDF (Arabic right-to-left included) or export it to Excel with live subtotals.</p>
+  <div>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Odoo 16.0</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Community &amp; Enterprise</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">17 automated tests</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">English &amp; Arabic</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">Technical name: po_pending_payments</span>
+    <span style="display:inline-block;border:1px solid rgba(255,255,255,.7);border-radius:20px;padding:6px 14px;margin:0 8px 8px 0;font-size:14px;">LGPL-3</span>
+  </div>
+</div>
+
+<!-- ============================== KEY NUMBERS ============================== -->
+<div style="display:flex;flex-wrap:wrap;margin:28px -8px 8px;">
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">3 outputs</div><div style="font-size:15px;color:#555;">Interactive list, styled PDF and Excel workbook from one wizard</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">5 due filters</div><div style="font-size:15px;color:#555;">All, overdue, not yet due, due within N days, due-date range</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#f6f4f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#714B67;">Any currency</div><div style="font-size:15px;color:#555;">Order-currency amounts plus company-currency totals from the books</div></div>
+  <div style="flex:1 1 220px;margin:8px;background:#eef6f6;border-radius:14px;padding:20px 22px;"><div style="font-size:30px;font-weight:700;color:#017E84;">0 overrides</div><div style="font-size:15px;color:#555;">No standard Odoo report, view or model is modified</div></div>
+</div>
+
+<!-- ============================== WHY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">Why this module</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Buyers think in purchase orders, accountants think in bills and payments. This report joins the two.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -10px;">
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #f1d6d6;background:#fff8f8;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#b33939;margin:0 0 12px;">In standard Odoo 16</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li><b>Purchase Analysis</b> shows ordered, received and billed quantities, but <b>no payments and no amount still due</b>.</li>
+      <li>Payable ageing is <b>per bill, not per purchase order</b>, and Community has no aged payable report at all.</li>
+      <li>A bill that covers <b>several purchase orders</b> cannot be traced back to each order.</li>
+      <li>What is <b>still to be billed</b> and what is <b>due on bills</b> live in different places.</li>
+      <li>Orders in several currencies cannot be <b>totalled</b> in the company currency without manual work.</li>
+      <li>Finding <b>which payments</b> settled an order means opening every bill one by one.</li>
+    </ul>
+  </div>
+  <div style="flex:1 1 440px;margin:10px;border:1px solid #cfe7e7;background:#f4fbfb;border-radius:14px;padding:24px 26px;">
+    <h3 style="font-size:19px;font-weight:700;color:#017E84;margin:0 0 12px;">With this module</h3>
+    <ul style="font-size:15px;line-height:1.65;margin:0;padding-left:20px;color:#3a3a42;">
+      <li>One row per order with <b>Billed</b>, <b>Paid</b>, <b>Due</b>, <b>Not Billed</b> and <b>Outstanding</b>.</li>
+      <li><b>Overdue</b> amount, <b>Days Late</b> and <b>Next Due</b> date per order, with <b>due-date thresholds</b> in the wizard.</li>
+      <li>Bills covering several orders are <b>split in proportion to their lines</b>, so totals always reconcile.</li>
+      <li><b>Outstanding = due on bills + not yet billed</b>, or bills only, your choice.</li>
+      <li>Company-currency figures read from the <b>posted journal items</b>, with a <b>currency breakdown</b>.</li>
+      <li>Every <b>payment, credit note and exchange difference</b> reconciled with each bill is listed under it.</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ============================== HOW IT WORKS ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:40px 0 6px;color:#2b2b33;">How it works</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Four steps, nothing to configure.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;">
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">1</div><div style="font-weight:700;margin-bottom:4px;">Open</div><div style="font-size:14px;color:#555;">Purchase &rsaquo; Reporting &rsaquo; Pending Payments.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">2</div><div style="font-weight:700;margin-bottom:4px;">Filter</div><div style="font-size:14px;color:#555;">Pick vendors, orders, a period and a due-date threshold, or leave everything empty.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #e3dde2;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#714B67;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">3</div><div style="font-weight:700;margin-bottom:4px;">Choose the output</div><div style="font-size:14px;color:#555;"><b>View</b>, <b>Print PDF</b> or <b>Export Excel</b>.</div></div>
+  <div style="flex:1 1 200px;margin:8px;border-radius:12px;border:1px solid #cfe7e7;background:#f4fbfb;padding:18px;"><div style="width:34px;height:34px;border-radius:50%;background:#017E84;color:#fff;font-weight:700;text-align:center;line-height:34px;margin-bottom:10px;">4</div><div style="font-weight:700;margin-bottom:4px;">Drill down</div><div style="font-size:14px;color:#555;">Open an order to see its bills, their share and every payment against them.</div></div>
+</div>
+
+<!-- ============================== FEATURES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Features</h2>
+<p style="font-size:16px;color:#555;margin:0 0 4px;">Screenshots use demo data: four vendors with orders in USD, EUR and SAR, partial payments and overdue bills, reported as of 11/03/2026 in a USD company.</p>
+
+<div style="margin:36px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Menus</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Right where buyers already look</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Purchase &rsaquo; Reporting &rsaquo; Pending Payments</b>, next to the standard <b>Purchase</b> analysis, for users in the <b>Purchase / Administrator</b> group.</p>
+  <img src="ppp_01_menu.png" alt="Purchase Reporting menu with the Pending Payments entry" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 1</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">One wizard, every filter you need</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Vendors</b> (contacts of a company are included), <b>Purchase Orders</b>, a period <b>Based On</b> the <b>Purchase Order Date</b> or the <b>Vendor Bill Date</b>, an <b>As of Date</b>, and options: <b>Pending Amounts</b> (bills due + not yet billed, or bills due only), <b>Include Settled Orders</b>, <b>Show Bills &amp; Payments</b>. Empty filters mean &ldquo;all&rdquo;.</p>
+  <img src="ppp_02_wizard.png" alt="Pending Payments wizard with vendor, order, period, due date and option filters" style="width:100%;max-width:1000px;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="ppp_03_wizard_vendor_orders.png" alt="Purchase order list narrowed to the selected vendor" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <div style="font-size:13px;color:#777;margin:6px 0 0;">Choosing a vendor narrows the <b>Purchase Orders</b> list to that vendor&rsquo;s confirmed orders.</div>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 2</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Due-date thresholds</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>Due Date Threshold</b>: <b>All Due Dates</b>, <b>Overdue Only</b>, <b>Not Yet Due</b>, <b>Due Within Next N Days</b> or a <b>Due Date Range</b>, all measured from the <b>As of Date</b>. Plan next week&rsquo;s payment run or chase what is already late.</p>
+  <img src="ppp_04_wizard_due.png" alt="Due within next N days threshold set to 30 days" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 3</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Interactive list, grouped by vendor</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;"><b>View</b> opens one row per order: <b>PO Amount</b> in the order currency, then <b>Billed</b>, <b>Paid</b>, <b>Due</b>, <b>Not Billed</b>, <b>Outstanding</b> and <b>Overdue</b> in the company currency with vendor subtotals and grand totals, <b>Days Late</b>, <b>Next Due</b> and a colour-coded <b>Status</b>. <b>Print PDF</b> and <b>Export Excel</b> are one click away in the list header.</p>
+  <img src="ppp_05_list.png" alt="Pending payments list grouped by vendor with company-currency totals" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="ppp_06_list_status.png" alt="Pending payments list grouped by status: due, overdue, not billed" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <div style="font-size:13px;color:#777;margin:6px 0 0;">Group by <b>Vendor</b>, <b>Currency</b>, <b>Status</b> or <b>Order Month</b>; filter <b>Overdue</b>, <b>Due</b> or <b>Not Billed</b>.</div>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 4</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Full traceability: bills and payment allocations</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Open a row to see the order in its own currency and in the company currency, then <b>Vendor Bills &amp; Payment Allocations</b>: each bill with its <b>Share %</b> of the order, due date, days late, paid and residual amounts. Open a bill line to list every <b>Payment</b>, <b>Credit Note</b> and <b>Exchange Difference</b> reconciled with it. Buttons open the <b>Order</b> and its <b>Bills</b>.</p>
+  <img src="ppp_07_line_form.png" alt="Pending payment detail of an order with order-currency and company-currency amounts and its bills" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="ppp_08_bill_detail.png" alt="Bill detail with allocated amounts and the two payments reconciled with it" style="width:100%;max-width:1000px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 5</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">A PDF you can send to management</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Landscape A4 on your company layout: the active filters, six KPI cards (<b>Billed</b>, <b>Paid</b>, <b>Due on Bills</b>, <b>Not Yet Billed</b>, <b>Overdue</b>, <b>Total Outstanding</b>), one section per vendor with bills and payments under each order, vendor subtotals, then a <b>Currency Breakdown</b> and the <b>Grand Total</b>. Untick <b>Show Bills &amp; Payments</b> for a one-line-per-order summary.</p>
+  <img src="ppp_09_pdf_en.png" alt="PDF report: KPI cards and per-vendor tables with bills and payments" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="ppp_10_pdf_en_summary.png" alt="PDF report: currency breakdown and grand total" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 6</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Arabic, right to left, printed cleanly</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Printed by a user in <b>Arabic</b>, the whole report flips right to left: columns, alignment, borders and indents. Mixed text such as bill numbers, references, dates and amounts with Arabic currency symbols is isolated piece by piece, so wkhtmltopdf never overlaps the glyphs. Every label of the module is translated (<b>ar_001</b>).</p>
+  <img src="ppp_11_pdf_ar.png" alt="Arabic right-to-left PDF report" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<div style="margin:44px 0 0;">
+  <div style="font-size:13px;font-weight:700;color:#017E84;letter-spacing:1px;text-transform:uppercase;">Feature 7</div>
+  <h3 style="font-size:23px;font-weight:700;margin:4px 0 8px;">Excel with live subtotals</h3>
+  <p style="font-size:15px;line-height:1.6;color:#555;margin:0 0 14px;">Three sheets. <b>Pending Payments</b>: one row per order, vendor <b>Subtotal</b> rows and a <b>Grand Total</b> written as <code>SUBTOTAL(9,&hellip;)</code> formulas, so they still add up after you filter or edit; frozen headers, autofilter, number formats per currency. <b>Bills &amp; Payments</b>: every bill with its allocation, and its payments indented below. <b>Currency Summary</b>: totals per currency. Sheets open right to left for Arabic users.</p>
+  <img src="ppp_12_excel.png" alt="Excel sheet Pending Payments with vendor subtotals and grand total" style="width:100%;margin-bottom:22px;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+  <img src="ppp_13_excel_bills.png" alt="Excel sheet Bills and Payments with payment allocations" style="width:100%;border:1px solid #e1e1e6;border-radius:10px;box-shadow:0 6px 24px rgba(30,30,60,.10);"/>
+</div>
+
+<!-- ============================== AMOUNTS & STATUSES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">How the amounts are computed</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Confirmed orders (<b>Purchase Order</b> or <b>Locked</b>) and the posted vendor bills and refunds linked to their lines.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Column</th><th style="text-align:left;padding:10px 14px;">Source</th></tr></thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;"><b>Billed</b></td><td style="padding:10px 14px;">Total of the payable journal items of the posted bills (refunds negative), times the order&rsquo;s share of each bill</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;"><b>Due</b></td><td style="padding:10px 14px;">Residual of those journal items, so every partial payment and reconciliation counts exactly as booked</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;"><b>Paid</b></td><td style="padding:10px 14px;">Billed &minus; Due</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;"><b>Not Billed</b></td><td style="padding:10px 14px;">Order quantity not covered by posted bills (units converted) &times; line total per unit, tax included; converted at the <b>As of Date</b> rate</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;"><b>Outstanding</b></td><td style="padding:10px 14px;">Due + Not Billed (or Due only, with <b>Bills Due Only</b>)</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;"><b>Overdue</b> / <b>Days Late</b></td><td style="padding:10px 14px;">Due on bills whose due date is before the <b>As of Date</b>; days counted from the due date</td></tr>
+  </tbody>
+</table>
+<div style="margin:18px 0 6px;font-weight:700;">Status of each order</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fee2e2;color:#b91c1c;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Overdue</span> part of the due amount is past its due date</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#fef3c7;color:#b45309;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Due</span> an amount is due on bills, none of it late yet</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#dbeafe;color:#1d4ed8;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Not Billed</span> nothing due on bills, quantities still to be billed</div>
+<div style="margin-bottom:6px;"><span style="display:inline-block;min-width:150px;text-align:center;background:#d1fae5;color:#047857;border-radius:10px;padding:1px 8px;font-size:13px;margin-right:10px;">Settled</span> fully billed and paid (shown with <b>Include Settled Orders</b>)</div>
+<div style="background:#f4fbfb;border-left:4px solid #017E84;border-radius:8px;padding:16px 20px;font-size:15px;line-height:1.6;margin-top:14px;"><b>Worked example (P00008 in the screenshots):</b> 40 t of rebar at $&nbsp;640 + 15&nbsp;% tax = <b>$&nbsp;29,440</b>. A bill for 25 t = <b>$&nbsp;18,400</b>, paid $&nbsp;9,000 then $&nbsp;4,000 = <b>$&nbsp;13,000</b>, so <b>Due $&nbsp;5,400</b>. The remaining 15 t are <b>Not Billed $&nbsp;11,040</b>. <b>Outstanding = 5,400 + 11,040 = $&nbsp;16,440</b>; the bill was due 08/19/2026, so on 11/03/2026 it is <b>76 days late</b>.</div>
+
+<!-- ============================== CORNER CASES ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Built for real-world corner cases</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">The cases that make naive payable reports disagree with accounting.</p>
+<div style="display:flex;flex-wrap:wrap;margin:0 -8px;font-size:15px;line-height:1.55;">
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>One bill, several orders</b><br/><span style="color:#555;">Split in proportion to the bill-line totals of each order; the shares of a bill always add up to 100&nbsp;%.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Credit notes</b><br/><span style="color:#555;">Refunds linked to the order reduce billed and due; reconciled against a bill they appear as a <b>Credit Note</b> allocation.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Draft bills</b><br/><span style="color:#555;">Not a liability yet: their quantities stay in <b>Not Billed</b> until the bill is posted.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Foreign currency &amp; exchange differences</b><br/><span style="color:#555;">Company amounts come from the journal items (bill-date rates); payments at another rate and their exchange entries are traced.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Units of measure</b><br/><span style="color:#555;">Billed quantities are converted to the order line&rsquo;s unit before computing what is left to bill.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Vendor contacts</b><br/><span style="color:#555;">Orders placed on a contact are reported under the company vendor, and included when that company is filtered.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Bill-date periods &amp; due filters</b><br/><span style="color:#555;">Only matching bills count, and amounts not yet billed are left out because they have no bill date or due date.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Time zones</b><br/><span style="color:#555;">Order-date periods are applied on the user&rsquo;s local day, not on UTC.</span></div>
+  <div style="flex:1 1 320px;margin:8px;padding:16px 18px;border:1px solid #e8e8ee;border-radius:12px;"><b>Nothing to show</b><br/><span style="color:#555;">PDF and Excel give a clear message instead of an empty file; inconsistent dates are refused in the wizard.</span></div>
+</div>
+
+<!-- ============================== SECURITY ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Security</h2>
+<p style="font-size:16px;color:#555;margin:0 0 18px;">Same audience as the standard Purchase reporting.</p>
+<table style="width:100%;border-collapse:collapse;font-size:15px;">
+  <thead><tr style="background:#714B67;color:#fff;"><th style="text-align:left;padding:10px 14px;">Who</th><th style="text-align:left;padding:10px 14px;">Sees</th></tr></thead>
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Purchase / Administrator</td><td style="padding:10px 14px;">The <b>Pending Payments</b> menu, wizard, results, PDF and Excel</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Purchase / User</td><td style="padding:10px 14px;">No access (like the standard Purchase reporting menu)</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;">Each user&rsquo;s results</td><td style="padding:10px 14px;">Wizard runs and result lines are temporary and readable only by the user who ran them; the Excel download checks this too</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;">Multi-company</td><td style="padding:10px 14px;">The report runs on the current company: its orders, its bills, its currency</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== TECHNICAL ============================== -->
+<h2 style="font-size:28px;font-weight:700;margin:48px 0 6px;color:#2b2b33;">Technical details</h2>
+<table style="width:100%;border-collapse:collapse;font-size:15px;margin-top:12px;">
+  <tbody>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:32%;color:#777;vertical-align:top;">Odoo version</td><td style="padding:10px 14px;overflow-wrap:anywhere;word-break:break-word;">16.0, Community and Enterprise</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:32%;color:#777;vertical-align:top;">Depends on</td><td style="padding:10px 14px;overflow-wrap:anywhere;word-break:break-word;"><code>purchase</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:32%;color:#777;vertical-align:top;">Python dependency</td><td style="padding:10px 14px;overflow-wrap:anywhere;word-break:break-word;"><code>xlsxwriter</code> (already required by Odoo)</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:32%;color:#777;vertical-align:top;">Menus</td><td style="padding:10px 14px;overflow-wrap:anywhere;word-break:break-word;">Purchase &rsaquo; Reporting &rsaquo; Pending Payments</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:32%;color:#777;vertical-align:top;">Settings</td><td style="padding:10px 14px;overflow-wrap:anywhere;word-break:break-word;">None</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:32%;color:#777;vertical-align:top;">Models</td><td style="padding:10px 14px;overflow-wrap:anywhere;word-break:break-word;"><code>po.pending.payment.wizard</code>, <code>po.pending.payment.line</code>, <code>po.pending.payment.bill</code> (transient), report <code>report.po_pending_payments.report_pending_payments</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:32%;color:#777;vertical-align:top;">Reports &amp; routes</td><td style="padding:10px 14px;overflow-wrap:anywhere;word-break:break-word;">QWeb PDF on its own A4 landscape paper format; Excel download at <code>/po_pending_payments/xlsx/&lt;id&gt;</code></td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:32%;color:#777;vertical-align:top;">Automated tests</td><td style="padding:10px 14px;overflow-wrap:anywhere;word-break:break-word;">17: partial bills and payments, vendor/contact, order, order-date and bill-date filters, all due thresholds, foreign currency vs. journal items, bills split across orders, credit notes, settled orders and scope, validation, access rights, list view, PDF, Excel formulas, Arabic RTL and translations, bidirectional text</td></tr>
+    <tr style="border-bottom:1px solid #eee;"><td style="padding:10px 14px;width:32%;color:#777;vertical-align:top;">Languages</td><td style="padding:10px 14px;overflow-wrap:anywhere;word-break:break-word;">English, Arabic (<code>ar_001</code>)</td></tr>
+    <tr style="border-bottom:1px solid #eee;background:#fafafa;"><td style="padding:10px 14px;width:32%;color:#777;vertical-align:top;">License</td><td style="padding:10px 14px;overflow-wrap:anywhere;word-break:break-word;">LGPL-3</td></tr>
+  </tbody>
+</table>
+
+<!-- ============================== CONTACT ============================== -->
+<div style="margin:52px 0 40px;background:linear-gradient(120deg,#714B67 0%,#017E84 100%);border-radius:18px;padding:36px 40px;color:#fff;">
+  <h2 style="font-size:26px;font-weight:700;margin:0 0 8px;color:#fff;">Support &amp; customization</h2>
+  <p style="font-size:16px;line-height:1.6;margin:0 0 20px;color:#fff;opacity:.95;">Questions, a demo, or an adaptation to your own process? Get in touch.</p>
+  <a href="mailto:ibrahim.yahiah@gmail.com" style="display:inline-block;background:#fff;color:#714B67;font-weight:700;text-decoration:none;border-radius:8px;padding:12px 22px;margin:0 12px 10px 0;">&#9993;&nbsp; ibrahim.yahiah@gmail.com</a>
+  <a href="https://www.linkedin.com/in/ibrahim-yahia" target="_blank" rel="noopener" style="display:inline-block;border:2px solid #fff;color:#fff;font-weight:700;text-decoration:none;border-radius:8px;padding:10px 22px;margin:0 0 10px 0;">LinkedIn: Ibrahim Yahia</a>
+  <p style="font-size:13px;margin:14px 0 0;opacity:.8;color:#fff;">Author: Ibrahim Yahia &middot; License: LGPL-3</p>
+</div>
+
+</section>

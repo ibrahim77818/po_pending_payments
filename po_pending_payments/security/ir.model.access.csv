@@ -1,0 +1,4 @@
+id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
+access_po_pending_payment_wizard_manager,po.pending.payment.wizard manager,model_po_pending_payment_wizard,purchase.group_purchase_manager,1,1,1,1
+access_po_pending_payment_line_manager,po.pending.payment.line manager,model_po_pending_payment_line,purchase.group_purchase_manager,1,1,1,1
+access_po_pending_payment_bill_manager,po.pending.payment.bill manager,model_po_pending_payment_bill,purchase.group_purchase_manager,1,1,1,1

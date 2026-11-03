@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+    <record id="view_po_pending_payment_line_tree" model="ir.ui.view">
+        <field name="name">po.pending.payment.line.tree</field>
+        <field name="model">po.pending.payment.line</field>
+        <field name="arch" type="xml">
+            <tree string="Pending Payments" create="false" edit="false" delete="false"
+                  decoration-danger="status == 'overdue'" decoration-warning="status == 'due'"
+                  decoration-info="status == 'unbilled'" decoration-muted="status == 'settled'">
+                <header>
+                    <button name="action_print_pdf" type="object" string="Print PDF" icon="fa-file-pdf-o"
+                            class="btn-secondary"/>
+                    <button name="action_export_xlsx" type="object" string="Export Excel" icon="fa-file-excel-o"
+                            class="btn-secondary"/>
+                </header>
+                <field name="company_currency_id" invisible="1"/>
+                <field name="wizard_id" invisible="1"/>
+                <field name="partner_id" optional="hide"/>
+                <field name="order_id" string="Order" widget="many2one"/>
+                <field name="date_order" string="Date"/>
+                <field name="currency_id" string="Cur." optional="show"/>
+                <field name="amount_order" optional="show"/>
+                <field name="amount_billed" optional="hide"/>
+                <field name="amount_paid" optional="hide"/>
+                <field name="amount_due" string="Due (PO Cur.)" optional="hide"/>
+                <field name="amount_unbilled" string="Not Billed (PO Cur.)" optional="hide"/>
+                <field name="billed_company" string="Billed" sum="Total" optional="show"/>
+                <field name="paid_company" string="Paid" sum="Total" optional="show"/>
+                <field name="due_company" string="Due" sum="Total" optional="show"/>
+                <field name="unbilled_company" string="Not Billed" sum="Total" optional="show"/>
+                <field name="outstanding_company" string="Outstanding" sum="Total" class="fw-bold"/>
+                <field name="overdue_company" string="Overdue" sum="Total" optional="show"/>
+                <field name="max_days_overdue" string="Days Late" optional="show"/>
+                <field name="next_due_date" string="Next Due" optional="show"/>
+                <field name="bill_count" optional="hide"/>
+                <field name="status" widget="badge" decoration-danger="status == 'overdue'"
+                       decoration-warning="status == 'due'" decoration-info="status == 'unbilled'"
+                       decoration-muted="status == 'settled'"/>
+                <button name="action_open_bills" type="object" icon="fa-file-text-o" title="Open Bills"
+                        attrs="{'invisible': [('bill_count', '=', 0)]}"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="view_po_pending_payment_line_form" model="ir.ui.view">
+        <field name="name">po.pending.payment.line.form</field>
+        <field name="model">po.pending.payment.line</field>
+        <field name="arch" type="xml">
+            <form string="Pending Payment" create="false" edit="false" delete="false">
+                <header>
+                    <field name="status" widget="statusbar" statusbar_visible="unbilled,due,overdue,settled"/>
+                </header>
+                <sheet>
+                    <div class="oe_button_box" name="button_box">
+                        <button name="action_open_order" type="object" class="oe_stat_button"
+                                icon="fa-shopping-cart" string="Order"/>
+                        <button name="action_open_bills" type="object" class="oe_stat_button" icon="fa-pencil-square-o"
+                                attrs="{'invisible': [('bill_count', '=', 0)]}">
+                            <field name="bill_count" widget="statinfo" string="Bills"/>
+                        </button>
+                    </div>
+                    <div class="oe_title">
+                        <h1><field name="order_id" readonly="1"/></h1>
+                    </div>
+                    <field name="company_currency_id" invisible="1"/>
+                    <field name="currency_id" invisible="1"/>
+                    <group>
+                        <group string="Order">
+                            <field name="partner_id"/>
+                            <field name="date_order"/>
+                            <field name="currency_id" string="Currency"/>
+                            <field name="next_due_date"/>
+                            <field name="max_days_overdue"/>
+                        </group>
+                        <group string="Order Currency">
+                            <field name="amount_order"/>
+                            <field name="amount_billed"/>
+                            <field name="amount_paid"/>
+                            <field name="amount_due"/>
+                            <field name="amount_unbilled"/>
+                        </group>
+                        <group string="Company Currency">
+                            <field name="amount_order_company"/>
+                            <field name="billed_company"/>
+                            <field name="paid_company"/>
+                            <field name="due_company"/>
+                            <field name="unbilled_company"/>
+                            <field name="outstanding_company" class="fw-bold"/>
+                            <field name="overdue_company"/>
+                        </group>
+                    </group>
+                    <separator string="Vendor Bills &amp; Payment Allocations"/>
+                    <field name="bill_line_ids" nolabel="1">
+                        <tree>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="company_currency_id" invisible="1"/>
+                            <field name="bill_id"/>
+                            <field name="move_type" optional="hide"/>
+                            <field name="date"/>
+                            <field name="date_due"/>
+                            <field name="days_overdue" string="Days Late" optional="show"/>
+                            <field name="allocation" string="Share %" optional="show"/>
+                            <field name="amount_total"/>
+                            <field name="amount_paid"/>
+                            <field name="amount_residual"/>
+                            <field name="amount_residual_company" string="Due (Company)" optional="show"/>
+                            <field name="payment_state" widget="badge" optional="show"/>
+                        </tree>
+                        <form>
+                            <field name="currency_id" invisible="1"/>
+                            <field name="company_currency_id" invisible="1"/>
+                            <group>
+                                <group>
+                                    <field name="bill_id"/>
+                                    <field name="move_type"/>
+                                    <field name="date"/>
+                                    <field name="date_due"/>
+                                    <field name="days_overdue"/>
+                                    <field name="allocation"/>
+                                    <field name="payment_state"/>
+                                </group>
+                                <group>
+                                    <field name="amount_total"/>
+                                    <field name="amount_paid"/>
+                                    <field name="amount_residual"/>
+                                    <field name="amount_total_company"/>
+                                    <field name="amount_paid_company"/>
+                                    <field name="amount_residual_company"/>
+                                </group>
+                            </group>
+                            <label for="payment_summary"/>
+                            <field name="payment_summary" class="font-monospace"/>
+                        </form>
+                    </field>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="view_po_pending_payment_line_search" model="ir.ui.view">
+        <field name="name">po.pending.payment.line.search</field>
+        <field name="model">po.pending.payment.line</field>
+        <field name="arch" type="xml">
+            <search string="Pending Payments">
+                <field name="partner_id"/>
+                <field name="order_id"/>
+                <field name="currency_id"/>
+                <filter name="filter_overdue" string="Overdue" domain="[('status', '=', 'overdue')]"/>
+                <filter name="filter_due" string="Due" domain="[('status', '=', 'due')]"/>
+                <filter name="filter_unbilled" string="Not Billed" domain="[('status', '=', 'unbilled')]"/>
+                <group expand="1" string="Group By">
+                    <filter name="group_vendor" string="Vendor" context="{'group_by': 'partner_id'}"/>
+                    <filter name="group_currency" string="Currency" context="{'group_by': 'currency_id'}"/>
+                    <filter name="group_status" string="Status" context="{'group_by': 'status'}"/>
+                    <filter name="group_date" string="Order Month" context="{'group_by': 'date_order:month'}"/>
+                </group>
+            </search>
+        </field>
+    </record>
+
+    <record id="action_po_pending_payment_line" model="ir.actions.act_window">
+        <field name="name">Pending Payments</field>
+        <field name="res_model">po.pending.payment.line</field>
+        <field name="view_mode">tree,form</field>
+        <field name="search_view_id" ref="view_po_pending_payment_line_search"/>
+        <field name="context">{'search_default_group_vendor': 1}</field>
+        <field name="help" type="html">
+            <p class="o_view_nocontent_smiling_face">No pending payments</p>
+            <p>Run the report from Purchase &gt; Reporting &gt; Pending Payments.</p>
+        </field>
+    </record>
+</odoo>

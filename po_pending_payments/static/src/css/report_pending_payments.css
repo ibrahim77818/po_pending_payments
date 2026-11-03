@@ -1,0 +1,181 @@
+/* Purchase Pending Payments – PDF styles (wkhtmltopdf-safe: tables, no flexbox, no CSS variables).
+ * Direction is handled explicitly by the .ppp-ltr / .ppp-rtl classes, so the whole file is excluded
+ * from Odoo's automatic rtlcss flipping (otherwise RTL rules would be flipped twice). */
+/*rtl:begin:ignore*/
+.ppp-report {
+    font-size: 10.5px;
+    color: #1d2939;
+}
+.ppp-report table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.ppp-ltr .ppp-start { text-align: left; }
+.ppp-ltr .ppp-num { text-align: right; }
+.ppp-rtl .ppp-start { text-align: right; }
+.ppp-rtl .ppp-num { text-align: left; }
+.ppp-rtl { direction: rtl; }
+.ppp-center { text-align: center; }
+.ppp-num { white-space: nowrap; }
+.ppp-muted { color: #667085; font-weight: normal; }
+
+/* Title bar */
+.ppp-titlebar td { vertical-align: bottom; padding: 0 0 10px 0; }
+.ppp-eyebrow {
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: #6b7c93;
+}
+.ppp-title {
+    margin: 2px 0 0 0;
+    font-size: 22px;
+    font-weight: 700;
+    color: #1f3a5f;
+}
+.ppp-ltr .ppp-asof { text-align: right; }
+.ppp-rtl .ppp-asof { text-align: left; }
+.ppp-asof-date { font-size: 15px; font-weight: 700; color: #1f3a5f; }
+
+/* Filters */
+.ppp-filters { margin-bottom: 12px; border-top: 2px solid #1f3a5f; }
+.ppp-filters td {
+    padding: 6px 8px;
+    background: #f4f6fa;
+    border-bottom: 1px solid #e4e8ef;
+    vertical-align: top;
+}
+.ppp-flabel {
+    display: block;
+    font-size: 8.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #6b7c93;
+}
+.ppp-fvalue { display: block; font-weight: 600; color: #1d2939; }
+
+/* KPI cards */
+.ppp-kpis { margin: 4px 0 16px 0; border-collapse: separate !important; border-spacing: 6px 0; }
+.ppp-kpi {
+    padding: 8px 10px;
+    border: 1px solid #e4e8ef;
+    border-top: 3px solid #98a2b3;
+    background: #ffffff;
+    vertical-align: top;
+}
+.ppp-kpi-good { border-top-color: #12b76a; }
+.ppp-kpi-warn { border-top-color: #f79009; }
+.ppp-kpi-bad { border-top-color: #d92d20; }
+.ppp-kpi-main { background: #1f3a5f; border-color: #1f3a5f; border-top-color: #1f3a5f; color: #ffffff; }
+.ppp-kpi-label {
+    font-size: 8.5px;
+    text-transform: uppercase;
+    letter-spacing: 0.8px;
+    color: #6b7c93;
+}
+.ppp-kpi-main .ppp-kpi-label, .ppp-kpi-main .ppp-kpi-sub { color: #c9d6e8; }
+.ppp-kpi-value { font-size: 14px; font-weight: 700; margin-top: 3px; white-space: nowrap; }
+.ppp-kpi-sub { font-size: 9px; margin-top: 2px; }
+
+/* Vendor sections */
+.ppp-vendor { margin-bottom: 14px; page-break-inside: auto; }
+.ppp-vendor-head td { padding: 6px 8px; background: #e8eef6; }
+.ppp-ltr .ppp-vendor-name { border-left: 4px solid #1f3a5f; }
+.ppp-rtl .ppp-vendor-name { border-right: 4px solid #1f3a5f; }
+.ppp-vendor-name { font-size: 12.5px; font-weight: 700; color: #1f3a5f; }
+.ppp-ltr .ppp-vendor-total { text-align: right; }
+.ppp-rtl .ppp-vendor-total { text-align: left; }
+.ppp-vendor-total strong { font-size: 12.5px; color: #1f3a5f; margin: 0 4px; }
+
+/* Data tables */
+.ppp-table thead { display: table-header-group; }
+.ppp-table tr { page-break-inside: avoid; }
+.ppp-table th {
+    padding: 5px 6px;
+    font-size: 8.5px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    color: #475467;
+    border-bottom: 1.5px solid #1f3a5f;
+    background: #ffffff;
+}
+.ppp-table td { padding: 4px 6px; border-bottom: 1px solid #eaecf0; vertical-align: top; }
+.ppp-table th.ppp-comp, .ppp-table td.ppp-comp { background: #f7f9fc; }
+.ppp-row td { font-size: 10.5px; }
+.ppp-paid { color: #067647; }
+.ppp-due { color: #b54708; font-weight: 600; }
+.ppp-ccy {
+    display: inline-block;
+    padding: 0 5px;
+    border: 1px solid #d0d5dd;
+    border-radius: 3px;
+    font-size: 8.5px;
+    font-weight: 700;
+    color: #344054;
+}
+.ppp-bill td { font-size: 9.5px; color: #344054; background: #fcfcfd; border-bottom: 1px dotted #eaecf0; }
+.ppp-pay td { font-size: 9px; color: #475467; border-bottom: 1px dotted #f2f4f7; }
+.ppp-ltr .ppp-indent { padding-left: 18px; }
+.ppp-ltr .ppp-indent2 { padding-left: 34px; }
+.ppp-rtl .ppp-indent { padding-right: 18px; }
+.ppp-rtl .ppp-indent2 { padding-right: 34px; }
+.ppp-tag {
+    display: inline-block;
+    padding: 0 4px;
+    margin: 0 3px;
+    background: #eef4ff;
+    color: #3538cd;
+    border-radius: 3px;
+    font-size: 8px;
+    font-weight: 700;
+    text-transform: uppercase;
+}
+.ppp-badge-bad {
+    display: inline-block;
+    min-width: 18px;
+    padding: 0 5px;
+    background: #fee4e2;
+    color: #b42318;
+    border-radius: 8px;
+    font-weight: 700;
+}
+.ppp-subtotal td {
+    padding: 5px 6px;
+    font-weight: 700;
+    background: #f4f6fa;
+    border-top: 1.5px solid #98a2b3;
+    border-bottom: none;
+}
+
+/* Summary */
+.ppp-summary { margin-top: 10px; page-break-inside: avoid; }
+.ppp-section-title {
+    font-size: 12px;
+    font-weight: 700;
+    color: #1f3a5f;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 6px 0;
+}
+.ppp-grand td {
+    padding: 7px 6px;
+    font-size: 11.5px;
+    font-weight: 700;
+    color: #ffffff;
+    background: #1f3a5f;
+}
+.ppp-grand td.ppp-comp { background: #1f3a5f; }
+.ppp-note { margin-top: 8px; font-size: 8.5px; color: #667085; }
+/* Each piece of mixed Arabic/Latin/number text is its own inline block, so QtWebKit's bidi
+ * algorithm never reorders digits across neighbouring pieces. */
+.ppp-chip { display: inline-block; margin: 0 2px; }
+/* Directional chunks produced by tools/bidi.py */
+.ppp-bd { display: inline-block; margin: 0 0.14em; }
+.ppp-bd.ppp-bj { margin: 0; }
+.ppp-bn { white-space: nowrap; }
+.ppp-alloc { color: #3538cd; }
+.ppp-kind { color: #344054; }
+/* Arabic script must not be letter-spaced or case-transformed (it breaks letter joining). */
+.ppp-rtl, .ppp-rtl * { letter-spacing: 0 !important; text-transform: none !important; }
+/*rtl:end:ignore*/
