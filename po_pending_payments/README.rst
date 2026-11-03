@@ -2,7 +2,7 @@
 Purchase Pending Payments Report
 ================================
 
-Odoo 16 (Community & Enterprise). Depends only on ``purchase``. No standard report or view is
+Odoo 19 (Community & Enterprise). Depends only on ``purchase``. No standard report or view is
 overridden: the module adds its own wizard, result models, QWeb PDF and Excel export.
 
 Usage
@@ -31,7 +31,7 @@ Outputs
 
 How amounts are computed
 ========================
-* Orders in state *Purchase Order* or *Locked*; bills = posted vendor bills and refunds linked
+* Confirmed orders (state *Purchase Order*, locked or not); bills = posted vendor bills and refunds linked
   through ``purchase_line_id``. Draft bills count as not yet billed.
 * Billed / paid / due come from each bill's payable journal items (``balance``,
   ``amount_residual`` and their currency counterparts), so company-currency figures carry the

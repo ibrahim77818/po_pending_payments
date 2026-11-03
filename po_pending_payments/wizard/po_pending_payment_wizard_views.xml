@@ -20,7 +20,7 @@
                         <field name="purchase_order_ids" widget="many2many_tags"
                                placeholder="All purchase orders"
                                options="{'no_create': True}"
-                               domain="[('state', 'in', ('purchase', 'done')), ('company_id', '=', company_id), '|', (1 if not partner_ids else 0, '=', 1), ('partner_id', 'child_of', partner_ids)]"/>
+                               domain="[('state', '=', 'purchase'), ('company_id', '=', company_id), '|', (1 if not partner_ids else 0, '=', 1), ('partner_id', 'child_of', partner_ids)]"/>
                     </group>
                     <group string="Period">
                         <field name="date_type" widget="radio"/>
@@ -34,14 +34,14 @@
                     </group>
                     <group string="Due Dates">
                         <field name="due_filter"/>
-                        <label for="due_days" attrs="{'invisible': [('due_filter', '!=', 'due_within')]}"/>
-                        <div class="o_row" attrs="{'invisible': [('due_filter', '!=', 'due_within')]}">
+                        <label for="due_days" invisible="due_filter != 'due_within'"/>
+                        <div class="o_row" invisible="due_filter != 'due_within'">
                             <field name="due_days" class="oe_inline"/>
                             <span>days from the "As of" date</span>
                         </div>
                         <label for="due_date_from" string="Due Between"
-                               attrs="{'invisible': [('due_filter', '!=', 'due_range')]}"/>
-                        <div class="o_row" attrs="{'invisible': [('due_filter', '!=', 'due_range')]}">
+                               invisible="due_filter != 'due_range'"/>
+                        <div class="o_row" invisible="due_filter != 'due_range'">
                             <field name="due_date_from" placeholder="From"/>
                             <i class="fa fa-long-arrow-right mx-2" aria-label="to" title="to"/>
                             <field name="due_date_to" placeholder="To"/>

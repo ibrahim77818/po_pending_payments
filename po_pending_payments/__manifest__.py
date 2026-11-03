@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 {
     'name': 'Purchase Pending Payments Report',
-    'version': '16.0.1.0.0',
+    'version': '19.0.1.0.0',
     'summary': 'Vendor pending payments per Purchase Order: on-screen, PDF and Excel, '
                'with bills, payment allocations and multi-currency totals',
     'description': """

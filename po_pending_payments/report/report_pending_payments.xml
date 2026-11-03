@@ -12,6 +12,9 @@
     </record>
 
     <!--
+        All tables carry o_ignore_layout_styling: Odoo 18 applies the company's report table style
+        (Settings > Document Layout) to every table that does not, which would strip cell padding
+        and add frames that clash with this report's own design.
         Every dynamic text, amount and date is printed through doc._bidi*(): it isolates Arabic and
         Latin/number runs so wkhtmltopdf renders mixed right-to-left text without overlapping glyphs.
     -->
@@ -25,7 +28,7 @@
             <div t-attf-class="page ppp-report #{'ppp-rtl' if rtl else 'ppp-ltr'}" t-att-dir="'rtl' if rtl else 'ltr'">
 
                 <!-- Title -->
-                <table class="ppp-titlebar">
+                <table class="ppp-titlebar o_ignore_layout_styling">
                     <tr>
                         <td>
                             <div class="ppp-eyebrow">Purchase</div>
@@ -40,7 +43,7 @@
                 </table>
 
                 <!-- Filters -->
-                <table class="ppp-filters">
+                <table class="ppp-filters o_ignore_layout_styling">
                     <tr>
                         <t t-foreach="d['filters']" t-as="flt">
                             <td>
@@ -52,7 +55,7 @@
                 </table>
 
                 <!-- KPI cards -->
-                <table class="ppp-kpis">
+                <table class="ppp-kpis o_ignore_layout_styling">
                     <tr>
                         <td class="ppp-kpi">
                             <div class="ppp-kpi-label">Billed</div>
@@ -88,7 +91,7 @@
                         <!-- The vendor banner is the first header row: wkhtmltopdf repeats it on every page
                              the vendor spans and never leaves it alone at the bottom of a page. -->
                         <t t-set="ncols" t-value="11 if d['unbilled_counted'] else 10"/>
-                        <table class="ppp-table">
+                        <table class="ppp-table o_ignore_layout_styling">
                             <thead>
                                 <tr class="ppp-vendor-row">
                                     <td t-att-colspan="ncols - 3" class="ppp-vendor-name" t-out="doc._bidi(vendor['partner'].display_name)"/>
@@ -118,7 +121,7 @@
                                     <tr class="ppp-row">
                                         <td class="ppp-start"><strong t-out="doc._bidi(row['name'])"/></td>
                                         <td class="ppp-center" t-out="doc._bidi_date(row['date_order'])"/>
-                                        <td class="ppp-center"><span class="ppp-ccy" t-esc="rc.name"/></td>
+                                        <td class="ppp-center"><span class="ppp-ccy" t-out="rc.name"/></td>
                                         <td class="ppp-num" t-out="doc._bidi_amount(row['amount_order'], rc)"/>
                                         <td class="ppp-num" t-out="doc._bidi_amount(row['billed'], rc)"/>
                                         <td class="ppp-num ppp-paid" t-out="doc._bidi_amount(row['paid'], rc)"/>
@@ -127,7 +130,7 @@
                                         <td class="ppp-num ppp-comp"><strong t-out="doc._bidi_amount(row['outstanding_company'], ccy)"/></td>
                                         <td class="ppp-center" t-out="doc._bidi_date(row['next_due_date'])"/>
                                         <td class="ppp-center">
-                                            <span t-if="row['max_days_overdue']" class="ppp-badge-bad" t-esc="row['max_days_overdue']"/>
+                                            <span t-if="row['max_days_overdue']" class="ppp-badge-bad" t-out="row['max_days_overdue']"/>
                                             <span t-else="" class="ppp-muted">—</span>
                                         </td>
                                     </tr>
@@ -151,7 +154,7 @@
                                                 <td class="ppp-num ppp-comp" t-out="doc._bidi_amount(bill['residual_company_alloc'], ccy)"/>
                                                 <td class="ppp-center" t-out="doc._bidi_date(bill['date_due'])"/>
                                                 <td class="ppp-center">
-                                                    <span t-if="bill['days_overdue']" class="ppp-badge-bad" t-esc="bill['days_overdue']"/>
+                                                    <span t-if="bill['days_overdue']" class="ppp-badge-bad" t-out="bill['days_overdue']"/>
                                                 </td>
                                             </tr>
                                             <t t-foreach="bill['payments']" t-as="pay">
@@ -199,7 +202,7 @@
                 <!-- Currency breakdown + grand total -->
                 <div class="ppp-summary">
                     <h4 class="ppp-section-title">Currency Breakdown</h4>
-                    <table class="ppp-table">
+                    <table class="ppp-table o_ignore_layout_styling">
                         <thead>
                             <tr>
                                 <th class="ppp-start">Currency</th>
@@ -218,8 +221,8 @@
                             <t t-foreach="d['currencies']" t-as="cur">
                                 <t t-set="cc" t-value="cur['currency']"/>
                                 <tr class="ppp-row">
-                                    <td class="ppp-start"><span class="ppp-ccy" t-esc="cc.name"/></td>
-                                    <td class="ppp-center" t-esc="cur['count']"/>
+                                    <td class="ppp-start"><span class="ppp-ccy" t-out="cc.name"/></td>
+                                    <td class="ppp-center" t-out="cur['count']"/>
                                     <td class="ppp-num" t-out="doc._bidi_amount(cur['amount_order'], cc)"/>
                                     <td class="ppp-num" t-out="doc._bidi_amount(cur['billed'], cc)"/>
                                     <td class="ppp-num ppp-paid" t-out="doc._bidi_amount(cur['paid'], cc)"/>
@@ -232,7 +235,7 @@
                             </t>
                             <tr class="ppp-grand">
                                 <td class="ppp-start">Grand Total</td>
-                                <td class="ppp-center" t-esc="d['order_count']"/>
+                                <td class="ppp-center" t-out="d['order_count']"/>
                                 <td colspan="4"/>
                                 <td t-if="d['unbilled_counted']"/>
                                 <td class="ppp-num" t-out="doc._bidi_amount(tot['due_company'], ccy)"/>

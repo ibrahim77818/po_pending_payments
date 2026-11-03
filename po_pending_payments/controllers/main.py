@@ -13,8 +13,7 @@ class PoPendingPaymentsController(http.Controller):
         if not wizard:
             raise NotFound()
         # Transient records are only readable by their creator; this raises otherwise.
-        wizard.check_access_rights('read')
-        wizard.check_access_rule('read')
+        wizard.check_access('read')
         content = wizard._generate_xlsx()
         return request.make_response(content, headers=[
             ('Content-Type', 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'),
