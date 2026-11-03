@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 16.0\n"
+"Project-Id-Version: Odoo Server 18.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-11-03 12:08+0000\n"
-"PO-Revision-Date: 2026-11-03 12:08+0000\n"
+"POT-Creation-Date: 2026-11-03 12:56+0000\n"
+"PO-Revision-Date: 2026-11-03 12:56+0000\n"
 "Last-Translator: \n"
 "Language-Team: Arabic\n"
 "Language: ar_001\n"
@@ -19,14 +19,12 @@ msgstr ""
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "%(orders)s orders · %(bills)s bills"
 msgstr "%(orders)s أوامر · %(bills)s فواتير"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "%.1f%% of bill"
 msgstr "%.1f%% من الفاتورة"
 
@@ -58,7 +56,6 @@ msgstr "<span>يوماً من تاريخ \"حتى تاريخ\"</span>"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "All"
 msgstr "الكل"
 
@@ -95,7 +92,6 @@ msgstr "الإجمالي المخصص (عملة الشركة)"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Allocation"
 msgstr "نسبة التخصيص"
 
@@ -114,22 +110,18 @@ msgstr ""
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Amount"
 msgstr "المبلغ"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Amount (%s)"
 msgstr "المبلغ (%s)"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Amounts in %s unless stated"
 msgstr "المبالغ بعملة %s ما لم يُذكر خلاف ذلك"
 
@@ -147,7 +139,6 @@ msgstr ""
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__as_of_date
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
-#, python-format
 msgid "As of Date"
 msgstr "حتى تاريخ"
 
@@ -164,18 +155,15 @@ msgstr "تاريخ الفاتورة"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__amount_billed
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
-#, python-format
 msgid "Billed"
 msgstr "المفوتر"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Billed (%s)"
 msgstr "المفوتر (%s)"
 
@@ -189,7 +177,6 @@ msgstr "المفوتر (عملة الشركة)"
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__bill_count
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_form
-#, python-format
 msgid "Bills"
 msgstr "الفواتير"
 
@@ -197,7 +184,6 @@ msgstr "الفواتير"
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__bill_line_ids
-#, python-format
 msgid "Bills & Payments"
 msgstr "الفواتير والمدفوعات"
 
@@ -232,7 +218,6 @@ msgstr "عملة الشركة"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid ""
 "Company-currency amounts of bills and payments come from the posted journal "
 "items (rates of their accounting dates). Amounts not yet billed are "
@@ -265,10 +250,8 @@ msgstr "أنشئ في"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_bill__move_type__in_refund
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
-#, python-format
 msgid "Credit Note"
 msgstr "إشعار دائن"
 
@@ -280,15 +263,12 @@ msgstr "العملة"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__currency_id
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__currency_id
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__company_currency_id
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_form
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_search
-#, python-format
 msgid "Currency"
 msgstr "العملة"
 
@@ -296,14 +276,12 @@ msgstr "العملة"
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
-#, python-format
 msgid "Currency Breakdown"
 msgstr "التوزيع حسب العملة"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Currency Summary"
 msgstr "ملخص العملات"
 
@@ -311,7 +289,6 @@ msgstr "ملخص العملات"
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
-#, python-format
 msgid "Date"
 msgstr "التاريخ"
 
@@ -335,7 +312,6 @@ msgstr "أيام التأخير"
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__days_overdue
-#, python-format
 msgid "Days Overdue"
 msgstr "أيام التأخير"
 
@@ -349,29 +325,23 @@ msgstr "الاسم المعروض"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Document"
 msgstr "المستند"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__amount_due
 #: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_line__status__due
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_search
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
-#, python-format
 msgid "Due"
 msgstr "المستحق"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Due (%s)"
 msgstr "المستحق (%s)"
 
@@ -395,7 +365,6 @@ msgstr "الاستحقاق بين"
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__date_due
-#, python-format
 msgid "Due Date"
 msgstr "تاريخ الاستحقاق"
 
@@ -408,7 +377,6 @@ msgstr "نطاق تاريخ الاستحقاق"
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__due_filter
-#, python-format
 msgid "Due Date Threshold"
 msgstr "حد تاريخ الاستحقاق"
 
@@ -440,14 +408,12 @@ msgstr "المستحق على الفواتير"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Due within %s days"
 msgstr "مستحق خلال %s يوماً"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Exchange Difference"
 msgstr "فرق العملة"
 
@@ -476,7 +442,6 @@ msgstr "الإجمالي العام"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Grand Total (%s)"
 msgstr "الإجمالي العام (%s)"
 
@@ -500,23 +465,14 @@ msgstr "تضمين الأوامر المسددة"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Journal"
 msgstr "دفتر اليومية"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Journal Entry"
 msgstr "قيد يومية"
-
-#. module: po_pending_payments
-#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill____last_update
-#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line____last_update
-#: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard____last_update
-msgid "Last Modified on"
-msgstr "آخر تعديل في"
 
 #. module: po_pending_payments
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__write_uid
@@ -558,7 +514,6 @@ msgstr "السطر"
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__max_days_overdue
-#, python-format
 msgid "Max Days Overdue"
 msgstr "أقصى أيام تأخير"
 
@@ -572,7 +527,6 @@ msgstr "الاستحقاق التالي"
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__next_due_date
-#, python-format
 msgid "Next Due Date"
 msgstr "تاريخ الاستحقاق التالي"
 
@@ -584,29 +538,23 @@ msgstr "لا توجد دفعات معلقة"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "No pending payments match the selected filters."
 msgstr "لا توجد دفعات معلقة تطابق عوامل التصفية المحددة."
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__amount_unbilled
 #: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_line__status__unbilled
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_search
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
-#, python-format
 msgid "Not Billed"
 msgstr "غير مفوتر"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Not Billed (%s)"
 msgstr "غير مفوتر (%s)"
 
@@ -661,7 +609,6 @@ msgstr "عملة الأمر"
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__date_order
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
-#, python-format
 msgid "Order Date"
 msgstr "تاريخ الأمر"
 
@@ -679,7 +626,6 @@ msgstr "إجمالي الأمر محوّل بسعر صرف تاريخ الأمر
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
-#, python-format
 msgid "Orders"
 msgstr "الأوامر"
 
@@ -691,9 +637,6 @@ msgstr "المبلغ القائم"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Outstanding (%s)"
 msgstr "المبلغ القائم (%s)"
 
@@ -713,7 +656,6 @@ msgstr "متأخر"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Overdue (%s)"
 msgstr "المتأخر (%s)"
 
@@ -735,10 +677,8 @@ msgstr "المتأخرة فقط"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__amount_order
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
-#, python-format
 msgid "PO Amount"
 msgstr "مبلغ أمر الشراء"
 
@@ -750,21 +690,16 @@ msgstr "مبلغ أمر الشراء (عملة الشركة)"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__amount_paid
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__amount_paid
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
-#, python-format
 msgid "Paid"
 msgstr "المدفوع"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Paid (%s)"
 msgstr "المدفوع (%s)"
 
@@ -781,7 +716,6 @@ msgstr "اسم الشريك"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Payment"
 msgstr "دفعة"
 
@@ -789,6 +723,12 @@ msgstr "دفعة"
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__payment_state
 msgid "Payment Status"
 msgstr "حالة الدفع"
+
+#. module: po_pending_payments
+#. odoo-python
+#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
+msgid "Payment not yet in accounting"
+msgstr "دفعة لم تُرحّل محاسبياً بعد"
 
 #. module: po_pending_payments
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__payment_summary
@@ -799,7 +739,6 @@ msgstr "المدفوعات"
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__pending_scope
-#, python-format
 msgid "Pending Amounts"
 msgstr "المبالغ المعلقة"
 
@@ -818,14 +757,12 @@ msgstr "دفعة معلقة"
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_search
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_wizard_form
-#, python-format
 msgid "Pending Payments"
 msgstr "الدفعات المعلقة"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Pending Payments (as of %s)"
 msgstr "الدفعات المعلقة (حتى %s)"
 
@@ -847,7 +784,6 @@ msgstr ""
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Pending_Payments"
 msgstr "الدفعات_المعلقة"
 
@@ -884,10 +820,8 @@ msgstr "المشتريات"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__order_id
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.report_pending_payments_document
-#, python-format
 msgid "Purchase Order"
 msgstr "أمر الشراء"
 
@@ -909,14 +843,12 @@ msgstr ""
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__purchase_order_ids
-#, python-format
 msgid "Purchase Orders"
 msgstr "أوامر الشراء"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Purchase Pending Payments"
 msgstr "الدفعات المعلقة للمشتريات"
 
@@ -944,7 +876,6 @@ msgstr "معالج تقرير الدفعات المعلقة للمشتريات"
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__name
-#, python-format
 msgid "Reference"
 msgstr "المرجع"
 
@@ -961,14 +892,12 @@ msgstr ""
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__amount_residual
-#, python-format
 msgid "Residual"
 msgstr "المتبقي"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Residual (%s)"
 msgstr "المتبقي (%s)"
 
@@ -985,7 +914,6 @@ msgstr "شغّل التقرير من المشتريات &gt; التقارير &g
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Set at least one bound for the due date range."
 msgstr "حدد حداً واحداً على الأقل لنطاق تاريخ الاستحقاق."
 
@@ -1018,42 +946,36 @@ msgstr "الحالة"
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Subtotal %s"
 msgstr "الإجمالي الفرعي %s"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "Subtotal (%s)"
 msgstr "الإجمالي الفرعي (%s)"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "The \"Due From\" date must be before the \"Due To\" date."
 msgstr "يجب أن يكون تاريخ \"الاستحقاق من\" قبل تاريخ \"الاستحقاق إلى\"."
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "The Python library xlsxwriter is required for the Excel export."
 msgstr "مكتبة بايثون xlsxwriter مطلوبة لتصدير Excel."
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "The number of days must be zero or positive."
 msgstr "يجب أن يكون عدد الأيام صفراً أو موجباً."
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#, python-format
 msgid "The start date must be before the end date."
 msgstr "يجب أن يكون تاريخ البداية قبل تاريخ النهاية."
 
@@ -1068,7 +990,6 @@ msgstr "إلى"
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__amount_total
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_tree
-#, python-format
 msgid "Total"
 msgstr "الإجمالي"
 
@@ -1081,27 +1002,22 @@ msgstr "إجمالي المبالغ القائمة"
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__move_type
-#, python-format
 msgid "Type"
 msgstr "النوع"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_line__partner_id
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_search
-#, python-format
 msgid "Vendor"
 msgstr "المورد"
 
 #. module: po_pending_payments
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
-#: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_bill__bill_id
 #: model:ir.model.fields.selection,name:po_pending_payments.selection__po_pending_payment_bill__move_type__in_invoice
-#, python-format
 msgid "Vendor Bill"
 msgstr "فاتورة مورد"
 
@@ -1119,7 +1035,6 @@ msgstr "فواتير الموردين"
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model_terms:ir.ui.view,arch_db:po_pending_payments.view_po_pending_payment_line_form
-#, python-format
 msgid "Vendor Bills & Payment Allocations"
 msgstr "فواتير الموردين وتخصيصات الدفع"
 
@@ -1127,7 +1042,6 @@ msgstr "فواتير الموردين وتخصيصات الدفع"
 #. odoo-python
 #: code:addons/po_pending_payments/wizard/po_pending_payment_wizard.py:0
 #: model:ir.model.fields,field_description:po_pending_payments.field_po_pending_payment_wizard__partner_ids
-#, python-format
 msgid "Vendors"
 msgstr "الموردون"
 

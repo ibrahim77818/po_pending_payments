@@ -2,7 +2,7 @@
 Purchase Pending Payments Report
 ================================
 
-Odoo 16 (Community & Enterprise). Depends only on ``purchase``. No standard report or view is
+Odoo 18 (Community & Enterprise). Depends only on ``purchase``. No standard report or view is
 overridden: the module adds its own wizard, result models, QWeb PDF and Excel export.
 
 Usage

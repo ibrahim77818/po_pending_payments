@@ -34,14 +34,14 @@
                     </group>
                     <group string="Due Dates">
                         <field name="due_filter"/>
-                        <label for="due_days" attrs="{'invisible': [('due_filter', '!=', 'due_within')]}"/>
-                        <div class="o_row" attrs="{'invisible': [('due_filter', '!=', 'due_within')]}">
+                        <label for="due_days" invisible="due_filter != 'due_within'"/>
+                        <div class="o_row" invisible="due_filter != 'due_within'">
                             <field name="due_days" class="oe_inline"/>
                             <span>days from the "As of" date</span>
                         </div>
                         <label for="due_date_from" string="Due Between"
-                               attrs="{'invisible': [('due_filter', '!=', 'due_range')]}"/>
-                        <div class="o_row" attrs="{'invisible': [('due_filter', '!=', 'due_range')]}">
+                               invisible="due_filter != 'due_range'"/>
+                        <div class="o_row" invisible="due_filter != 'due_range'">
                             <field name="due_date_from" placeholder="From"/>
                             <i class="fa fa-long-arrow-right mx-2" aria-label="to" title="to"/>
                             <field name="due_date_to" placeholder="To"/>

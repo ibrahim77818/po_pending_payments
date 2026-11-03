@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 import io
 from datetime import date
+from unittest.mock import patch
 
 from odoo import Command, fields
 from odoo.addons.account.tests.common import AccountTestInvoicingCommon
@@ -18,11 +19,11 @@ except ImportError:  # pragma: no cover
 class TestPoPendingPayments(AccountTestInvoicingCommon):
 
     @classmethod
-    def setUpClass(cls, chart_template_ref=None):
-        super().setUpClass(chart_template_ref=chart_template_ref)
+    def setUpClass(cls):
+        super().setUpClass()
         cls.company = cls.company_data['company']
         cls.usd = cls.company.currency_id
-        cls.gold = cls.currency_data['currency']  # 1 USD = 3 Gold in 2016, 2 Gold from 2017
+        cls.gold = cls.setup_other_currency('EUR')  # 1 USD = 3 EUR in 2016, 2 EUR from 2017
         cls.env.user.groups_id |= cls.env.ref('purchase.group_purchase_manager')
         cls.env.user.tz = 'UTC'
         cls.product = cls.env['product.product'].create({
@@ -365,7 +366,8 @@ class TestPoPendingPayments(AccountTestInvoicingCommon):
         self.assertEqual(action['report_name'], 'po_pending_payments.report_pending_payments')
         html = self.env['ir.actions.report']._render_qweb_html(
             'po_pending_payments.action_report_po_pending_payments', wizard.ids)[0].decode()
-        for needle in (po1.name, po2.name, 'AAA Vendor', 'BBB Vendor', 'Currency Breakdown', 'ppp-ltr'):
+        for needle in (po1.name, po2.name, 'AAA Vendor', 'BBB Vendor', 'Currency Breakdown', 'ppp-ltr',
+                       'o_ignore_layout_styling'):
             self.assertIn(needle, html)
         self.assertIn(po1.order_line.invoice_lines.move_id.name, html, 'Bills are printed when details are on')
         wizard.show_details = False
@@ -435,3 +437,27 @@ class TestPoPendingPayments(AccountTestInvoicingCommon):
         html = str(bidi_html('مؤسسة <النور>'))
         self.assertNotIn('<النور>', html, 'content is escaped')
         self.assertIn('dir="rtl"', html)
+
+    def test_18_payment_without_journal_entry(self):
+        """Enterprise setup: a journal without outstanding account posts no entry for the payment.
+
+        The bill stays unreconciled (Odoo shows it "In Payment"), so the amount is still due in the
+        books; the report lists the payment for traceability without counting it as paid.
+        """
+        po = self._po(self.vendor_a, [(self.product, 1, 100.0)])
+        bill = self._bill([(po.order_line, 1)])
+        Move = type(self.env['account.move'])
+        with patch.object(Move, '_get_invoice_in_payment_state', lambda self: 'in_payment'):
+            wizard = self.env['account.payment.register'].with_context(
+                active_model='account.move', active_ids=bill.ids).create({
+                    'amount': 40.0, 'payment_date': '2019-01-20', 'journal_id': self.bank_journal.id})
+            wizard.payment_method_line_id.payment_account_id = False
+            payment = wizard._create_payments()
+        self.assertFalse(payment.move_id, 'Scenario needs a payment without journal entry')
+        self.assertIn(payment, bill.matched_payment_ids)
+        row = self._row(self._wizard(purchase_order_ids=[Command.set(po.ids)])._get_report_data(), po)
+        self.assertAmount(row['paid'], 0.0)
+        self.assertAmount(row['due'], 100.0)
+        allocations = row['bills'][0]['payments']
+        self.assertEqual([a['kind'] for a in allocations], ['unposted'])
+        self.assertAmount(allocations[0]['amount_currency'], 40.0)

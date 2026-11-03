@@ -20,15 +20,15 @@ class PoPendingPaymentLine(models.TransientModel):
     currency_id = fields.Many2one('res.currency', string='Currency', readonly=True)
 
     amount_order = fields.Monetary(string='PO Amount', currency_field='currency_id', readonly=True,
-                                  group_operator=False)
+                                  aggregator=False)
     amount_billed = fields.Monetary(string='Billed', currency_field='currency_id', readonly=True,
-                                  group_operator=False)
+                                  aggregator=False)
     amount_paid = fields.Monetary(string='Paid', currency_field='currency_id', readonly=True,
-                                  group_operator=False)
+                                  aggregator=False)
     amount_due = fields.Monetary(string='Due', currency_field='currency_id', readonly=True,
-                                  group_operator=False)
+                                  aggregator=False)
     amount_unbilled = fields.Monetary(string='Not Billed', currency_field='currency_id', readonly=True,
-                                  group_operator=False)
+                                  aggregator=False)
 
     amount_order_company = fields.Monetary(
         string='PO Amount (Company)', currency_field='company_currency_id', readonly=True,
@@ -45,7 +45,7 @@ class PoPendingPaymentLine(models.TransientModel):
         string='Outstanding (Company)', currency_field='company_currency_id', readonly=True)
     overdue_company = fields.Monetary(string='Overdue (Company)', currency_field='company_currency_id',
                                       readonly=True)
-    max_days_overdue = fields.Integer(string='Max Days Overdue', readonly=True, group_operator='max')
+    max_days_overdue = fields.Integer(string='Max Days Overdue', readonly=True, aggregator='max')
     next_due_date = fields.Date(string='Next Due Date', readonly=True)
     bill_count = fields.Integer(string='Bills', readonly=True)
     bill_ids = fields.Many2many('account.move', 'po_pp_line_bill_rel', 'line_id', 'move_id',
@@ -175,7 +175,7 @@ class PoPendingPaymentBill(models.TransientModel):
                               help='Share of this bill attributed to the purchase order.')
     amount_total = fields.Monetary(string='Total', currency_field='currency_id', readonly=True)
     amount_paid = fields.Monetary(string='Paid', currency_field='currency_id', readonly=True,
-                                  group_operator=False)
+                                  aggregator=False)
     amount_residual = fields.Monetary(string='Residual', currency_field='currency_id', readonly=True)
     amount_total_company = fields.Monetary(string='Allocated Total (Company)',
                                            currency_field='company_currency_id', readonly=True)

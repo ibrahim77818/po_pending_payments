@@ -190,7 +190,7 @@ class PoPendingPaymentWizard(models.TransientModel):
             move = counterpart.move_id
             if move in exchange_moves or move.id in exchange_moves.ids:
                 kind = 'exchange'
-            elif move.payment_id or counterpart.payment_id:
+            elif move.origin_payment_id or counterpart.payment_id:
                 kind = 'payment'
             elif move.move_type in BILL_TYPES:
                 kind = 'credit_note' if move.move_type == 'in_refund' else 'bill'
@@ -205,6 +205,28 @@ class PoPendingPaymentWizard(models.TransientModel):
                 'kind': kind,
                 'amount_currency': sign * amount_cur,
                 'amount_company': sign * partial.amount,
+            })
+        # Odoo 18: a payment registered on a journal without an outstanding account gets no journal
+        # entry and stays unreconciled with the bill until the bank statement is matched. It is
+        # listed for traceability but not counted as paid: the liability is still open in the books.
+        sign = -1 if bill.move_type == 'in_refund' else 1
+        unposted = bill.matched_payment_ids.filtered(
+            lambda p: not p.move_id and p.state in ('in_process', 'paid'))
+        for pay in unposted:
+            amount_company = abs(pay.amount_company_currency_signed)
+            if pay.currency_id == bill.currency_id:
+                amount_cur = pay.amount
+            else:
+                amount_cur = company_currency._convert(amount_company, bill.currency_id, bill.company_id, pay.date)
+            payments.append({
+                'move': pay,
+                'name': pay.name,
+                'ref': pay.memo or '',
+                'date': pay.date,
+                'journal': pay.journal_id.display_name,
+                'kind': 'unposted',
+                'amount_currency': sign * amount_cur,
+                'amount_company': sign * amount_company,
             })
         payments.sort(key=lambda p: (p['date'] or fields.Date.today(), p['name'] or ''))
 
@@ -481,6 +503,7 @@ class PoPendingPaymentWizard(models.TransientModel):
             'bill': _('Vendor Bill'),
             'exchange': _('Exchange Difference'),
             'entry': _('Journal Entry'),
+            'unposted': _('Payment not yet in accounting'),
         }.get(kind, kind)
 
     # ------------------------------------------------------------------
